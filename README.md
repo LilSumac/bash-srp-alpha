@@ -9,6 +9,7 @@ This is a collection of code that spans nearly two years of development; it cont
 Weapon Base: Spy & associates. The base used is a modified version of the CW 2.0 weapon base, and all credits go to its creators.
 
 Content: Dave Brown, TnB Community, STALKER Misery Mod
+
 GUI Elements: TacoScript SRP
 
 ### Content
