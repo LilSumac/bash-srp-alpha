@@ -1,6 +1,11 @@
 local BASH = BASH;
 local Entity = FindMetaTable("Entity");
 
+/*
+**  Entity.IsProp
+**  Checks to see if an entity is a prop.
+**  returns: boolean
+*/
 local prop_types = {
     ["prop_physics"] = true,
     ["prop_physics_multiplayer"] = true,
@@ -16,6 +21,11 @@ function Entity:IsProp()
     return false;
 end
 
+/*
+**  Entity.IsDoor
+**  Checks to see if an entity is a door.
+**  returns: boolean
+*/
 local door_types = {
     ["func_door"] = true,
     ["func_door_rotating"] = true,
@@ -30,6 +40,11 @@ function Entity:IsDoor()
     return false;
 end
 
+/*
+**  Entity.IsItem
+**  Checks to see if an entity is a BASH item.
+**  returns: boolean
+*/
 function Entity:IsItem()
     if self and self:IsValid() then
         if self:GetClass() == "bash_item" then
@@ -40,6 +55,11 @@ function Entity:IsItem()
     return false;
 end
 
+/*
+**  Entity.IsBASHItem
+**  Checks to see if an entity is a BASH entity.
+**  returns: boolean
+*/
 function Entity:IsBASHItem()
     if self and self:IsValid() then
         if string.find(self:GetClass(), "bash_", 1, true) then

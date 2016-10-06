@@ -1,6 +1,12 @@
 local BASH = BASH;
 
 /*
+**  This was a very hasty animation reference table.
+**  Currently only compatible with the models provided in the content.
+**  ¯\_(ツ)_/¯
+*/
+
+/*
 **  Animation Table
 */
 local animTable = {};
@@ -166,6 +172,16 @@ mutantModels["snork1"] = true;
 **	Animation Handling
 */
 
+//  If you want more compatibility, fiddle with this function.
+//  Or just script your own handler.
+
+/*
+**  BASH.GetModelType
+**  Returns a string identifier categorizing the supplied model to
+**  reference with the animation table.
+**      model: String of the model path.
+**  returns: string
+*/
 function BASH:GetModelType(model)
     if !model then return "tnb", false end;
     if string.sub(model, 1, 19) == "models/tnb/stalker/" then return "tnb" end;
@@ -182,6 +198,14 @@ function BASH:GetModelType(model)
     return "tnb", false;
 end
 
+/*
+**  BASH.GetMoveType
+**  Returns a string identifier categorizing a player's current
+**  movement state to reference with the animation table.
+**      velocity: Arbitrary velocity value.
+**      crouched: Whether or not a player is crouched.
+**  returns: string
+*/
 function BASH:GetMoveType(velocity, crouched)
     local len2d = velocity:Length2D();
     local aType = "idle";
@@ -205,9 +229,19 @@ function BASH:GetMoveType(velocity, crouched)
 	return aType;
 end
 
+/*
+**  BASH.HandlePlayerDriving
+**  A GMod hook override to handle a player's animations while
+**  driving a vehicle. If the animation has not been handled,
+**  return false.
+**      ply: Player to handle.
+**      velocity: Player's current velocity.
+**  returns: boolean
+*/
 function BASH:HandlePlayerDriving(ply, velocity)
     if ply:InVehicle() then
         local modelStr, isMutant = BASH:GetModelType(ply:GetModel());
+        //  No driving animations for mutant models. :^(
         if isMutant then return false end;
         local wep = ply:GetActiveWeapon();
         local wepName = wep:GetClass();
@@ -235,6 +269,14 @@ function BASH:HandlePlayerDriving(ply, velocity)
     return false;
 end
 
+/*
+**  BASH.HandlePlayerJumping
+**  A GMod hook override to handle a player's animations while
+**  jumping. If the animation has not been handled, return false.
+**      ply: Player to handle.
+**      velocity: Player's current velocity.
+**  returns: boolean
+*/
 function BASH:HandlePlayerJumping(ply, velocity)
     if !ply.Jumping and !ply:OnGround() and ply:WaterLevel() <= 2 then
         ply.Jumping = true;
@@ -247,6 +289,7 @@ function BASH:HandlePlayerJumping(ply, velocity)
         end
 
         local modelStr, isMutant = BASH:GetModelType(ply:GetModel());
+        //  Mutant models have no jumping animations. :^(
         if isMutant then return false end;
         local wep = ply:GetActiveWeapon();
         if !wep or !wep:IsValid() then return false end;
@@ -275,9 +318,18 @@ function BASH:HandlePlayerJumping(ply, velocity)
     return false;
 end
 
+/*
+**  BASH.HandlePlayerCrouching
+**  A GMod hook override to handle a player's animations while
+**  crouching. If the animation has not been handled, return false.
+**      ply: Player to handle.
+**      velocity: Player's current velocity.
+**  returns: boolean
+*/
 function BASH:HandlePlayerCrouching(ply, velocity)
     if ply:Crouching() and ply:WaterLevel() <= 0 then
         local modelStr, isMutant = BASH:GetModelType(ply:GetModel());
+        //  Mutant models have no crouching animations. :^(
         if isMutant then return false end;
         local wep = ply:GetActiveWeapon();
         if !wep or !wep:IsValid() then return end;
@@ -309,11 +361,20 @@ function BASH:HandlePlayerCrouching(ply, velocity)
     return false;
 end
 
+/*
+**  BASH.HandlePlayerSwimming
+**  A GMod hook override to handle a player's animations while
+**  swimming. If the animation has not been handled, return false.
+**      ply: Player to handle.
+**      velocity: Player's current velocity.
+**  returns: boolean
+*/
 function BASH:HandlePlayerSwimming(ply, velocity)
+    //  No swimming in the Zone!
     return false;
 end
 
-/*
+/*  Just some animation testing stuff.
 if CLIENT then
     local function doAnimGUI(ply, cmd, args)
         local frame = vgui.Create("DFrame");
@@ -352,20 +413,32 @@ elseif SERVER then
 end
 */
 
+/*
+**  BASH.CalcMainActivity
+**  A GMod hook override to handle the setting of a player's
+**  current animation sequence. Returns the set animation
+**  sequence number and an override, if applicable.
+**      ply: Player to handle.
+**      velocity: Player's current velocity.
+**  returns: number, number
+*/
 function BASH:CalcMainActivity(ply, velocity)
     ply.CalcIdeal = ACT_HL2MP_IDLE;
     ply.CalcSeqOverride = -1;
     if !CheckPly(ply) or !ply:Alive() then return ply.CalcIdeal, ply.CalcSeqOverride end;
 
+    //  No weapon (including hands), player idles.
     local wep = ply:GetActiveWeapon();
     if !wep or !wep:IsValid() then
         return ply.CalcIdeal, ply.CalcSeqOverride;
     end
 
+    //  If there's no custom override in the above functions...
     if !self:HandlePlayerDriving(ply, velocity) and
        !self:HandlePlayerJumping(ply, velocity) and
        !self:HandlePlayerSwimming(ply, velocity) and
        !self:HandlePlayerCrouching(ply, velocity) then
+        // ...then the player is moving normally. Set to a passive/active stance.
         local modelStr, isMutant = BASH:GetModelType(ply:GetModel());
         local wepName = wep:GetClass();
         local holsterType = wep:GetTable().RunHoldType or wep:GetTable().HolsterType;
@@ -395,5 +468,6 @@ function BASH:CalcMainActivity(ply, velocity)
 end
 
 function GM:TranslateActivity(ply, act)
+    //  Don't translate anything.
 	return act;
 end

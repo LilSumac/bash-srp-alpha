@@ -2,10 +2,12 @@ local BASH = BASH;
 
 DeriveGamemode("sandbox");
 
+//	Some client config settings.
 CreateClientConVar("bash_show_hud", 1, true, false);
 CreateClientConVar("bash_play_youtube", 1, true, false);
 CreateClientConVar("bash_log_enabled", 1, true, false);
 
+//	Default BASH fonts.
 surface.CreateFont("BASHFontIntro", {
 	size = 16,
 	weight = 500,
@@ -85,6 +87,7 @@ TEXT_ALIGN_TOP = 4;
 TEXT_ALIGN_BOTTOM = 3;
 
 function BASH:Init()
+	//	Initialization process.
 	hook.Call("OnInit", self);
 	MsgCon(color_green, "Successfully initialized client-side. Init time: " .. math.Round(SysTime() - self.StartTime, 5) .. " seconds.", true);
 	self.Initialized = true;
@@ -98,12 +101,15 @@ function BASH:Init()
 	end
 	*/
 
+
+	//	Enable map-specific error filtering.
 	if game.GetMap() == "rp_stalker" or game.GetMap() == "rp_stalker_redux" then
 		RunConsoleCommand("con_filter_enable", "1");
 		RunConsoleCommand("con_filter_text_out", "steam_");
 	end
 end
 
+//	Remove annoying default GMod features.
 timer.Destroy("HintSystem_OpeningMenu");
 timer.Destroy("HintSystem_Annoy1");
 timer.Destroy("HintSystem_Annoy2");

@@ -1,5 +1,13 @@
 local BASH = BASH;
 
+/*
+**  BASH.GetMultiInvWeight
+**  Recursively gets the total weight of a storage item,
+**	including any storage items within it. The first recursive
+**	method I ever wrote with real world application. :^)
+**		itemTab: Table of the inventory to be calculated.
+**  returns: number
+*/
 function BASH:GetMultiInvWeight(itemTab)
 	if !itemTab or !itemTab.ID then
 		return 0;

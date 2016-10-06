@@ -1,7 +1,9 @@
+//	Alert types.
 ALERT_NONE = 0;
 ALERT_HELPER = 1;
 ALERT_PDAS = 2;
 
+//	Ammo class names to actual names.
 AMMO_STRINGS = {
 	["12x70"] = "12x70mm Buckshot",
 	["357mag"] = ".357 Magnum",
@@ -21,6 +23,7 @@ AMMO_STRINGS = {
 	["rpg"] = "PG-7V Warhead"
 };
 
+//	Body parts enum.
 BODY_PARTS = {
 	"Head", "Ears",
 	"Eyes", "Neck",
@@ -29,12 +32,14 @@ BODY_PARTS = {
 	"Knees", "Feet"
 };
 
+//	BASH colors.
 color_con = Color(192, 192, 192, 255);
 color_red = Color(200, 0, 0, 255);
 color_green = Color(0, 200, 0, 255);
 color_blue = Color(0, 0, 200, 255);
 color_purple = Color(200, 0, 200, 255);
 
+//	All characters.
 CHARACTERS = {
 	'q', 'w', 'e', 'r',
 	't', 'y', 'u', 'i',
@@ -54,18 +59,23 @@ CHARACTERS = {
 	'8', '9'
 };
 
+//	Equipment name to index.
 EQUIP_PARTS = {
 	["Primary"] = 1,
 	["Secondary"] = 2,
 	["Melee"] = 3
 };
 
+//	Flag types.
 FLAG_PLY = 1;
 FLAG_CHAR = 2;
 
+//	Gender types.
+//	(TRIGGERED)
 GENDER_MALE = 1;
 GENDER_FEMALE = 2;
 
+//	Inventory types.
 INV_MAIN = 1;
 INV_SEC = 2;
 INV_ACC = 3;
@@ -73,28 +83,34 @@ INV_STORE = 4;
 INV_CLOTHING = 5;
 INV_EQUIP = 6;
 
+//	Logging types.
 LOG_ALL = 1;
 LOG_IC = 2;
 
+//	Valid file prefixes.
 PREFIXES_CLIENT = {"cl_", "vgui_"};
 PREFIXES_SHARED = {"sh_", "item_", "inv_", string.sub(game.GetMap(), 1, string.find(game.GetMap(), '_', 1))};
 PREFIXES_SERVER = {"sv_"};
 
+//	Item size types.
 SIZE_LARGE = 3;
 SIZE_MED = 2;
 SIZE_SMALL = 1;
 SIZE_MIN = 0;
 
+//	Item storage types.
 STORAGE_INF = 4;
 STORAGE_LARGE = 3;
 STORAGE_MED = 2;
 STORAGE_SMALL = 1;
 
 if CLIENT then
+	//	Positioning constants.
 	SCRW = ScrW();
 	SCRH = ScrH();
 	CENTER_X = SCRW / 2;
 	CENTER_Y = SCRH / 2;
+	//	Notification positioning types.
 	NOTIF_TOP_LEFT = 0;
 	NOTIF_TOP_CENT = 1;
 	NOTIF_TOP_RIGHT = 2;
@@ -102,6 +118,7 @@ if CLIENT then
 	NOTIF_BOT_CENT = 4;
 	NOTIF_BOT_RIGHT = 5;
 
+	//	Color mod tables.
 	COLOR_MODIFY = {
 		DEFAULT = {
 			["$pp_colour_addr"] = 		0,
@@ -127,6 +144,7 @@ if CLIENT then
 		}
 	};
 
+	//	Disabled HUD elements.
 	DISABLED_HUD = {
 		"CHudHealth",
 		"CHudSuitPower",
@@ -142,6 +160,7 @@ if CLIENT then
 		"CHudZoom",
 		"CHudPoisonDamageIndicator"
 	};
+	//	Weapons with crosshairs enabled.
 	ENABLED_CROSSHAIRS = {
 		"gmod_tool",
 		"weapon_physgun"

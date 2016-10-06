@@ -400,7 +400,8 @@ function BASH:Think()
 		end
 
 		LocalPlayer():HandleQuirks();
-		LocalPlayer():HandleMonologue();
+		//	Disabling monologue for now. Uncomment if you wish to use it.
+		//LocalPlayer():HandleMonologue();
 	end
 end
 netstream.Hook("BASH_Reset_Stamina", function(data)

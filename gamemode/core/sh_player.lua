@@ -5,6 +5,12 @@ local Player = FindMetaTable("Player");
 **  Utility Functions
 */
 
+/*
+**  Player.CalculateQuirkEffects
+**  Calculates a player's stats, taking into account any quirks
+**	they may have.	Returns a table of modified default stats.
+**	returns: table
+*/
 function Player:CalculateQuirkEffects()
 	local tab = {};
 	tab.MaxHealth = 100;
@@ -36,6 +42,10 @@ function Player:CalculateQuirkEffects()
 	return tab;
 end
 
+/*
+**  Player.HandleQuirks
+**  A hook to handle a player's quirk effects.
+*/
 function Player:HandleQuirks()
 	if !CheckPly(self) then return end;
 
@@ -47,7 +57,7 @@ function Player:HandleQuirks()
 	local lastAte = self:GetEntry("LastAte");
 	local lastDrank = self:GetEntry("LastDrank");
 
-	//	Hunger
+	//	Check hunger status.
 	if isHungry == 0 and maxStamina != predicted.NormalMaxStamina then
 		self:UpdateEntry("MaxStamina", predicted.NormalMaxStamina);
 	elseif isHungry == 1 and maxStamina != predicted.HungryMaxStamina then
@@ -63,7 +73,7 @@ function Player:HandleQuirks()
 		self.ResetInitialStamina = false;
 	end
 
-	//	Thirst
+	//	Check thirst status.
 	if isThirsty == 0 and staminaRegen != predicted.NormalStaminaRegen then
 		self:UpdateEntry("StaminaRegen", predicted.NormalStaminaRegen);
 	elseif isThirsty == 1 and staminaRegen != predicted.ThirstyStaminaRegen then
@@ -76,6 +86,12 @@ function Player:HandleQuirks()
 	end
 end
 
+/*
+**  Player.HandleMonologue
+**  CURRENTLY UNUSED.
+**	A simple way of handling a player's monologue based on their
+**	quirks/statuses.
+*/
 function Player:HandleMonologue()
 	if !CheckPly(self) then return end;
 	if self.OverflowPrevention then
@@ -83,18 +99,22 @@ function Player:HandleMonologue()
 	end
 
 	if os.time() >= self:GetEntry("NextHungerNotif") and os.time() - self:GetEntry("LastNotif") > 300 then
-		//self:PrintChat(table.Random(BASH.HungerMessages));
+		self:PrintChat(table.Random(BASH.HungerMessages));
 		self:UpdateEntry("LastNotif", os.time());
 		self.OverflowPrevention = CurTime();
 	end
 
 	if os.time() >= self:GetEntry("NextThirstNotif") and os.time() - self:GetEntry("LastNotif") > 300 then
-		//self:PrintChat(table.Random(BASH.ThirstMessages));
+		self:PrintChat(table.Random(BASH.ThirstMessages));
 		self:UpdateEntry("LastNotif", os.time());
 		self.OverflowPrevention = CurTime();
 	end
 end
 
+/*
+**  Player.PrintChat
+**  Prints a message to the player's chatbox.
+*/
 function Player:PrintChat(text)
 	if CLIENT then
 		netstream.Start("BASH_Send_Chat", {text, text, CHAT_TYPES.UTIL.ID});
@@ -107,6 +127,12 @@ end
 **  Boolean Functions
 */
 
+/*
+**  Player.CanJoinFaction
+**  Checks to see if a player can join the supplied faction.
+**		faction: Faction data table.
+**  returns: boolean
+*/
 function Player:CanJoinFaction(faction)
 	if !CheckPly(self) then return end;
 	if self:IsSumac() then return true end;
@@ -120,6 +146,7 @@ function Player:CanJoinFaction(faction)
 		end
 	end
 
+	//	YOU AIN'T ON THE LIST
 	if self:HasWhitelist(data.ID) == 0 and !data.Default then return false end;
 
 	local charCount = 0;
@@ -136,6 +163,13 @@ function Player:CanJoinFaction(faction)
 	end
 end
 
+/*
+**  Player.HasFlag
+**  Checks to see if a player has a certain flag.
+**		flag: Flag to check.
+**		flagType: Type of the supplied flag.
+**  returns: boolean
+*/
 function Player:HasFlag(flag, flagType)
 	if !CheckPly(self) or !self.PlyData then return end;
 
@@ -162,6 +196,12 @@ function Player:HasFlag(flag, flagType)
 	end
 end
 
+/*
+**  Player.HasWhitelist
+**  Checks to see if a player has a certain whitelist.
+**		id: ID of the whitelist.
+**  returns: boolean
+*/
 function Player:HasWhitelist(id)
 	if !CheckPly(self) then return false end;
 
@@ -173,6 +213,12 @@ function Player:HasWhitelist(id)
 	return false;
 end
 
+/*
+**  Player.HasQuirk
+**  Checks to see if a player has a certain quirk.
+**		id: ID of the quirk.
+**  returns: boolean
+*/
 function Player:HasQuirk(id)
 	if !CheckPly(self) or !CheckChar(self) then return end;
 
@@ -187,6 +233,17 @@ function Player:HasQuirk(id)
 	return false;
 end
 
+/*
+**  Player.HasItem
+**  Checks to see if a player has a certain item. If a second
+**	argument is given, it will check if the player has enough
+**	of the item. Returns whether or not they have the item,
+**	the inventory in which they have it, the X and Y position
+**	in the inventory, and the amount.
+**		id: ID of the item.
+**		findAmount: An amount to look for (minimum).
+**  returns: boolean, string, number, number, number
+*/
 function Player:HasItem(id, findAmount)
 	local curInv = self:GetEntry("InvMain");
 	curInv = util.JSONToTable(curInv);
@@ -251,6 +308,13 @@ function Player:HasItem(id, findAmount)
 	end
 end
 
+/*
+**  Player.HasClothing
+**  Checks to see if a player is wearing something on a certain
+**	body part.
+**		id: ID of the body part.
+**  returns: boolean
+*/
 function Player:HasClothing(bodyPart)
 	local clothing = self:GetEntry("Clothing") or "[]";
 	clothing = util.JSONToTable(clothing) or {};
@@ -269,6 +333,13 @@ function Player:HasClothing(bodyPart)
 	return false;
 end
 
+/*
+**  Player.IsWearing
+**  Checks to see if a player is wearing a certain article of
+**	clothing.
+**		id: ID of the clothing.
+**  returns: boolean
+*/
 function Player:IsWearing(article)
 	local clothing = util.JSONToTable(self:GetEntry("Clothing"));
 	for part, curArticle in pairs(clothing) do

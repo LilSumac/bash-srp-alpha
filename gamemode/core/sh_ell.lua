@@ -1,5 +1,6 @@
 local BASH = BASH;
 
+//	Include core files without any fancy gimmicks.
 if CLIENT then
 	include("sh_util.lua");
 	include("sh_glob.lua");
@@ -13,6 +14,8 @@ else
 	include("sv_bash.lua");
 end
 
+//	Time for gimmicks.
+//	Process the rest of the core files/directories.
 BASH:ProcessFile("external/sh_pon.lua");
 BASH:ProcessFile("external/sh_netstream2.lua");
 BASH:ProcessFile("core/cl_util.lua");
@@ -35,4 +38,5 @@ BASH:ProcessDirectory("inventories", false);
 BASH:ProcessDirectory("factions", false);
 BASH:ProcessDirectory("quirks", false);
 
+//	BASH entry point.
 BASH:Init();
