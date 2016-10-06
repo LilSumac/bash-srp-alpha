@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"flashlight";
+ITEM.Name =				"Flashlight";
+ITEM.Description =		"A heavy black flashlight.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/raviool/flashlight.mdl");
+ITEM.Weight =			0.5;
+ITEM.DefaultStock = 	1000;
+ITEM.DefaultPrice = 	75;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

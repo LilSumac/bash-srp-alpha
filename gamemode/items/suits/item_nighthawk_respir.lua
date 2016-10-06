@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"nighthawk_respir";
+ITEM.Name =				"Nighthawk (Respirator)";
+ITEM.Description =		"The Nighthawk suit is a rare varient of the Berill military suit, remade with jet-black material for stealthy operations. Comes with a balaclava and respirator.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc2.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	45000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_merc/stalker_merc_8.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_berill";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

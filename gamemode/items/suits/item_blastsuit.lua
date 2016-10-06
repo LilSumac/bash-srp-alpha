@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"blastsuit";
+ITEM.Name =				"Blast Suit";
+ITEM.Description =		"As close to an EOD suit as one could get in the Zone. This suit offers fantastic ballistic protection, but almost nothing else. In addition, it is also very heavy.";
+ITEM.FlavorText =		"Lord, what a splendid world we ruined...";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/skat_merc.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =			24;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	32000;
+ITEM.Durability =		35;
+ITEM.FabricYield =		10;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_merc/stalker_merc_10.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		45;
+ITEM.HelmetArmor =      15;
+ITEM.BurnResist = 		5;
+ITEM.AcidResist = 		5;
+ITEM.ElectroResist = 	5;
+ITEM.ColdResist = 		5;
+ITEM.Inventory =		"inv_blastsuit";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

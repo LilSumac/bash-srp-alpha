@@ -1,0 +1,28 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"exo_mono";
+ITEM.Name =				"Monolith Exoskeleton";
+ITEM.Description =		"An experimental compilation of some of the most advanced protective gear. Most exoskeletons aren't even assembled in the Zone itself, but are instead smuggled in. Consists of a radiation suit and a battery-powered external frame of sythetic muscle and servomotors.";
+ITEM.FlavorText =		"A combat exoskeleton as large as life.";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/exo_monolith.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =			25;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	325000;
+ITEM.Durability =		60;
+ITEM.FabricYield =		15;
+ITEM.MetalYield =       15;
+ITEM.ItemSize =         SIZE_LARGE;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/exo_mono.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		55;
+ITEM.HelmetArmor =      20;
+ITEM.BurnResist = 		25;
+ITEM.AcidResist = 		25;
+ITEM.ElectroResist = 	25;
+ITEM.ColdResist = 		25;
+ITEM.Inventory =		"inv_exo";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

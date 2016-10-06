@@ -1,0 +1,10 @@
+local BASH = BASH;
+local QUIRK = {};
+QUIRK.ID = "lessthirst";
+QUIRK.Name = "Waterskin";
+QUIRK.Description = "[Thirst] -THIRST | -STAMINA REGEN";
+QUIRK.QuirkType = "thirst";
+QUIRK.NormalStaminaRegen = -1.66;
+QUIRK.ThirstyStaminaRegen = -1.66;
+QUIRK.ThirstLength = 3600;
+BASH:ProcessQuirk(QUIRK);

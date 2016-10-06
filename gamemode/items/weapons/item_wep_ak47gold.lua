@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_ak47gold";
+ITEM.Name =             "Gold AK-47";
+ITEM.Description =      "One of the most iconic rifles of the modern era, now out of production. Chambers an older 7.62x39mm round and plated with a golden exterior";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_ak47_gold.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =           4;
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     125000;
+ITEM.Durability =       4000;
+ITEM.MetalYield =       1;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_ak47gold";
+ITEM.AmmoType =         "762x39";
+BASH:ProcessItem(ITEM);

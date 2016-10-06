@@ -1,0 +1,25 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"mars";
+ITEM.Name =				"\'MARS\'";
+ITEM.Description =		"The 'Mobile Anomalous Research Suit' is often only worn by those affiliated with the ecologists. Although lacking in ballistics protection, this suit offers above average protection against anomalies Zone-wide.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/outfit/cs_heavy.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	24000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_neutral/eco_neutralb3.mdl");
+ITEM.BodyArmor = 		10;
+ITEM.BurnResist = 		20;
+ITEM.AcidResist = 		20;
+ITEM.ElectroResist = 	20;
+ITEM.ColdResist = 		20;
+ITEM.Inventory =		"inv_mars";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

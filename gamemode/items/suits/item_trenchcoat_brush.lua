@@ -1,0 +1,25 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"trenchcoat_brush";
+ITEM.Name =				"Brush Trenchcoat";
+ITEM.Description =		"Garb usually worn by the bandits of the Zone. Features a bit of brush around the hood for camouflage purposes. Offers little to no protection against any of the Zone's deadly flora or fauna.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/outfit/bandit3.mdl");
+ITEM.Weight =			3;
+ITEM.LootHidden =       false;
+ITEM.DefaultStock = 	4;
+ITEM.DefaultPrice = 	1500;
+ITEM.Durability =		3;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_bandit/stalker_bandit3c.mdl");
+ITEM.BodyArmor = 		3;
+ITEM.BurnResist = 		3;
+ITEM.AcidResist = 		3;
+ITEM.ElectroResist = 	3;
+ITEM.ColdResist = 		3;
+ITEM.Inventory =		"inv_trenchcoat";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

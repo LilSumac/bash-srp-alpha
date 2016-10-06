@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"seva_2g_mono";
+ITEM.Name =				"2G Monolith SEVA";
+ITEM.Description =		"A second-generation SEVA suit, which features better ballistics and fantastic anomalous protection. Made with a typical monolith color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/seva_merc.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =			10;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	46000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/seva_mono.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      30;
+ITEM.BurnResist = 		30;
+ITEM.AcidResist = 		30;
+ITEM.ElectroResist = 	30;
+ITEM.ColdResist = 		30;
+ITEM.Inventory =		"inv_seva";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

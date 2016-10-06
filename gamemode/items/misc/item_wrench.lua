@@ -1,0 +1,11 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"wrench";
+ITEM.Name =				"Metal Wrench";
+ITEM.Description =		"A simple yet heavy metal wrench for turning things.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_c17/tools_wrench01a.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     100;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

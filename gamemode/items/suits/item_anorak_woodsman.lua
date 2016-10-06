@@ -1,0 +1,25 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"anorak_woodsman";
+ITEM.Name =				"\'The Woodsman\'";
+ITEM.Description =		"A unique anorak jacket, complete with a fur shawl. The garb of a rookie Zone hunter. Provides little to no protection against kinetic, anomalous, or radiation damage.";
+ITEM.FlavorText =		"Listen to the Zone, for it speaks.";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/bandit2.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			5;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	4000;
+ITEM.Durability =		5;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_neutral/stalker_neutral_1_mask.mdl");
+ITEM.BodyArmor = 		5;
+ITEM.BurnResist = 		5;
+ITEM.AcidResist = 		5;
+ITEM.ElectroResist = 	5;
+ITEM.ColdResist = 		5;
+ITEM.Inventory =		"inv_anorak";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

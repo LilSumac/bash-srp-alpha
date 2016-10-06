@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"bees";
+ITEM.Name =				"\'The Bees\'";
+ITEM.Description =		"A SKAT-9M suit fitted with a steel helmet, visor, and trenchcoat. Something about the wearer exudes an aura of power.";
+ITEM.FlavorText =		"\"it ain't neva been a bout who's winnin, just about who's loosin the least\" -bees";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/skat_merc.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =			12;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	85000;
+ITEM.Durability =		35;
+ITEM.FabricYield =		10;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/skat_bees.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		40;
+ITEM.HelmetArmot =      20;
+ITEM.BurnResist = 		25;
+ITEM.AcidResist = 		25;
+ITEM.ElectroResist = 	25;
+ITEM.ColdResist = 		25;
+ITEM.Inventory =		"inv_skat";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

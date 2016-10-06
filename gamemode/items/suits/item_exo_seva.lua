@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"exo_seva";
+ITEM.Name =				"SEVA Exoskeleton";
+ITEM.Description =		"An experimental compilation of some of the most advanced protective gear. Most exoskeletons aren't even assembled in the Zone itself, but are instead smuggled in. Consists of a third generation SEVA suit and a battery-powered external frame of sythetic muscle and servomotors.";
+ITEM.FlavorText =		"A combat exoskeleton as large as life.";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/exo_dave.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =			25;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	360000;
+ITEM.Durability =		60;
+ITEM.FabricYield =		15;
+ITEM.MetalYield =       15;
+ITEM.ItemSize =         SIZE_LARGE;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/exo_seva_heavy.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		50;
+ITEM.BurnResist = 		35;
+ITEM.AcidResist = 		35;
+ITEM.ElectroResist = 	35;
+ITEM.ColdResist = 		35;
+ITEM.Inventory =		"inv_seva";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

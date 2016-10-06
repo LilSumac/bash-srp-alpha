@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"seva_cs3";
+ITEM.Name =				"Drab CS-3 SEVA ADP";
+ITEM.Description =		"A combination of a standard SEVA suit and a CS-3.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/seva_loner.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	30000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/seva_nss.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		25;
+ITEM.HelmetArmor =      30;
+ITEM.BurnResist = 		30;
+ITEM.AcidResist = 		30;
+ITEM.ElectroResist = 	30;
+ITEM.ColdResist = 		30;
+ITEM.Inventory =		"inv_cs3";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

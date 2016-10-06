@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_762x54";
+ITEM.Name =				"7.62x54mmR Rounds";
+ITEM.Description =		"A box of rimmed Soviet rifle cartridges that have the longest service life of all military-issued cartridges in the world.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/762x54.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	2000;
+ITEM.DefaultPrice = 	300;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    10;
+ITEM.MaxStacks =        100;
+BASH:ProcessItem(ITEM);

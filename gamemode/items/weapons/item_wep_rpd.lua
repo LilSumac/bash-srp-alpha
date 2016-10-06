@@ -1,0 +1,21 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_rpd";
+ITEM.Name =             "RPD";
+ITEM.Description =      "The Soviet precursor to most squad automatic weapons. Chambers a 7.62x39mm belted round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_rpd.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =           7.5;
+ITEM.DefaultStock =     1;
+ITEM.DefaultPrice =     40000;
+ITEM.Durability =       10000;
+ITEM.MetalYield =       4;
+ITEM.ItemSize =         SIZE_LARGE;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_rpd";
+ITEM.AmmoType =         "762x39_belt";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

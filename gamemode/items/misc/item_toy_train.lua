@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"toy_train";
+ITEM.Name =				"Toy Train";
+ITEM.Description =		"A small children\'s toy resembling a choo-choo train. Worn by the years...";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_combine/CombineTrain01a.mdl");
+ITEM.ModelScale =       0.025;
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     125;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

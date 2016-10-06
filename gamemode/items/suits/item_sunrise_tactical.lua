@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"sunrise_tactical";
+ITEM.Name =				"Tactical Sunrise";
+ITEM.Description =		"Truly the flagship suit of STALKERs Zone-wide. The perfect balance of practicality and protection. On top of the standard kit, this suit features a durable ballistic helmet, gasmask, and MOLLE rigging for extra storage.";
+ITEM.FlavorText =		"Get out of here, STALKER!";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/sunrise_loner.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	25;
+ITEM.DefaultPrice = 	18000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/sunrise_mask3.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		25;
+ITEM.HelmetArmor =      10;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_sunrise_tac";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"toy_car";
+ITEM.Name =				"Toy Car";
+ITEM.Description =		"A small children\'s toy resembling an old Soviet car. Worn by the years...";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_vehicles/car004a_physics.mdl");
+ITEM.ModelScale =       0.075;
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     125;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

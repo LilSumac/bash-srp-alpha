@@ -1,0 +1,12 @@
+CustomizableWeaponry:addFireSound("CW_DZ_M249_FIRE", "weapons/dz_m249/m249_shot.wav", 1, 100, CHAN_STATIC)
+CustomizableWeaponry:addFireSound("CW_DZ_M249_FIRE_SUPPRESSED", "weapons/dz_m249/m249_supp.wav", 1, 70, CHAN_STATIC)
+
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_CLOTH", "weapons/dz_m249/cloth.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_BLOTRELEASE", "weapons/dz_m249/boltrelease.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_BELTIN", "weapons/dz_m249/beltin.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_COVERCLOSE", "weapons/dz_m249/coverclose.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_COVEROPEN", "weapons/dz_m249/coveropen.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_MAGDRAW", "weapons/dz_m249/magdraw.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_MAGIN", "weapons/dz_m249/magin.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_MAGOUT", "weapons/dz_m249/magout.wav")
+CustomizableWeaponry:addReloadSound("CW_DZ_M249_MAGOUTFULL", "weapons/dz_m249/magoutfull.wav")

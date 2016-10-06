@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"io7a_merc";
+ITEM.Name =				"Mercenary IO7a";
+ITEM.Description =		"A western-made suit used commonly by the special forces of various armies around the world. Similar to the sunrise suit, this outfit comes with a gasmask and tactical vest. The fabrics follow the common blue mercenary color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc1.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	50;
+ITEM.DefaultPrice = 	20000;
+ITEM.Durability =		15;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/io7a_merc1.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_io7a";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,10 @@
+local BASH = BASH;
+local QUIRK = {};
+QUIRK.ID = "lesshunger";
+QUIRK.Name = "Light Eater";
+QUIRK.Description = "[Hunger] -HUNGER | -MAX STAMINA";
+QUIRK.QuirkType = "hunger";
+QUIRK.NormalMaxStamina = -30;
+QUIRK.HungryMaxStamina = -30;
+QUIRK.HungerLength = 3600;
+BASH:ProcessQuirk(QUIRK);

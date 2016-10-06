@@ -1,0 +1,15 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_762x51_belt";
+ITEM.Name =				"7.62x51mm Belt";
+ITEM.Description =		"A box of belted, rimless rifle cartridges developed for NATO machine guns.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/pkm.mdl");
+ITEM.LootHidden =       true;
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	2000;
+ITEM.DefaultPrice = 	6000;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    200;
+ITEM.MaxStacks =        1000;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"documents_unmarked";
+ITEM.Name =				"Unmarked Documents";
+ITEM.Description =		"An interesting compilation of documents covering some of the most basic knowledge of the Zone.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/item/handhelds/files1.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     2500;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

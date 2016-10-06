@@ -1,0 +1,11 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ballistic_vest";
+ITEM.Name =				"Ballistic Vest";
+ITEM.Description =		"An item of personal armor that helps absorb the impact and prohibit penetration from most small-arms fire. Very useful for upgrading one's suit.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/bandit1.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     1000;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

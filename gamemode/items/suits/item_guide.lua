@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"guide";
+ITEM.Name =				"\'The Guide\'";
+ITEM.Description =		"A special varient of the IO7a suit with a unique grassy color scheme and a jet-black gasmask. The garb of a true veteran STALKER.";
+ITEM.FlavorText =		"Where can you take me?";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc2.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	28000;
+ITEM.Durability =		15;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_neutral/now_neutral_razgr_1.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_io7a";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

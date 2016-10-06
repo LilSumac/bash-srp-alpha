@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"seva_1g_drab";
+ITEM.Name =				"1G Drab SEVA";
+ITEM.Description =		"A first-generation SEVA suit, which features adequate ballistics and fantastic anomalous protection.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/seva_loner.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	30;
+ITEM.DefaultPrice = 	34000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/seva_lone.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		25;
+ITEM.HelmetArmor =      30;
+ITEM.BurnResist = 		30;
+ITEM.AcidResist = 		30;
+ITEM.ElectroResist = 	30;
+ITEM.ColdResist = 		30;
+ITEM.Inventory =		"inv_seva";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

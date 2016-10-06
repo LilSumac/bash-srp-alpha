@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"trophy_zombie";
+ITEM.Name =				"Zombie Jaw";
+ITEM.Description =		"The remnants of a zombie's jaw. The mark of a beginner mutant hunter.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/artifacts/gravi.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     1500;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

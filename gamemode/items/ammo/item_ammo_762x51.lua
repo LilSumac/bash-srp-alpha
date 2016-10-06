@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_762x51";
+ITEM.Name =				"7.62x51mm Rounds";
+ITEM.Description =		"A box of rimless rifle cartridges developed for NATO small arms.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/762x51.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	2000;
+ITEM.DefaultPrice = 	600;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    20;
+ITEM.MaxStacks =        200;
+BASH:ProcessItem(ITEM);

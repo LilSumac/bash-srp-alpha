@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ssp_99x";
+ITEM.Name =				"SSP-99X";
+ITEM.Description =		"A further modified version of the SSP-99M, with better overall protection against all elements. Used primarily by ecologists and those working with them.";
+ITEM.FlavorText =		"You won't get my work!";
+ITEM.WorldModel =		Model("models/stalker/outfit/ecosuit2.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =			6;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	90000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		4;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/ecosuit_black.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		25;
+ITEM.BurnResist = 		70;
+ITEM.AcidResist = 		70;
+ITEM.ElectroResist = 	70;
+ITEM.ColdResist = 		70;
+ITEM.Inventory =		"inv_ssp";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

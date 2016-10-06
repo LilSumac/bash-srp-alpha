@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"exo_proto";
+ITEM.Name =				"Prototype Exoskeleton";
+ITEM.Description =		"An early experimental version of the classic exoskeleton. Consists of an upgraded sunrise suit and a battery-powered external frame of sythetic muscle and servomotors.";
+ITEM.FlavorText =		"A combat exoskeleton as large as life.";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/exo_loner.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =			25;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	260000;
+ITEM.Durability =		50;
+ITEM.FabricYield =		15;
+ITEM.MetalYield =       15;
+ITEM.ItemSize =         SIZE_LARGE;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_neutral/stalker_exo_proto.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		40;
+ITEM.BurnResist = 		25;
+ITEM.AcidResist = 		25;
+ITEM.ElectroResist = 	25;
+ITEM.ColdResist = 		25;
+ITEM.Inventory =		"inv_sunrise";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

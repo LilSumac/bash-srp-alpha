@@ -1,0 +1,21 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_m620";
+ITEM.Name =             "Stevens M620";
+ITEM.Description =      "A very old redesign of John Browning's M520 series. Looks to be falling apart... Chambers a 12-gauge shell.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_m620.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =           3;
+ITEM.DefaultStock =     12;
+ITEM.DefaultPrice =     14000;
+ITEM.Durability =       200;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_m620";
+ITEM.AmmoType =         "12x70";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"detector_veles";
+ITEM.Name =				"Veles Detector";
+ITEM.Description =		"Using three anomalous particle detection chambers, this detector can recognize all anomalous activity in a wide range around the user.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/detector_veles.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     12000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

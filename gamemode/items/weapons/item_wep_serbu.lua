@@ -1,0 +1,22 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_serbu";
+ITEM.Name =             "Serbu Super-Shorty";
+ITEM.Description =      "A compact, stockless pump-action shotgun. Chambers a 12-gauge shell.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_supershort.mdl");
+ITEM.Tier =             1;
+ITEM.LootHidden =       false;
+ITEM.Weight =           2;
+ITEM.DefaultStock =     20;
+ITEM.DefaultPrice =     5000;
+ITEM.Durability =       500;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_serbu";
+ITEM.AmmoType =         "12x70";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

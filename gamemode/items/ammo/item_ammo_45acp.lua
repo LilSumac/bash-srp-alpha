@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_45acp";
+ITEM.Name =				".45 ACP Rounds";
+ITEM.Description =		"A box of hard-hitting pistol rounds whose caliber has survived every major conflict of the 20th century.";
+ITEM.FlavorText =		"\'Why do you carry a 45?\' \'\'Cause they don\'t make a 46.\'";
+ITEM.WorldModel =		Model("models/stalker/ammo/45cal.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	2000;
+ITEM.DefaultPrice = 	350;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    20;
+ITEM.MaxStacks =        200;
+BASH:ProcessItem(ITEM);

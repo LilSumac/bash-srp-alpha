@@ -1,0 +1,11 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"binder_grey";
+ITEM.Name =				"Grey Binder";
+ITEM.Description =		"A grey binder full of loads of random papers.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_lab/bindergraylabel01a.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     175;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,25 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"squaddie_balaclava";
+ITEM.Name =				"Squaddie Suit (Balaclava)";
+ITEM.Description =		"Garb usually worn by the bandit groups of the Zone. Offers a bit more protection than the standard trenchcoat thanks to the tactical vest with plenty of room for storage.";
+ITEM.FlavorText =		"Squad out.";
+ITEM.WorldModel =		Model("models/stalker/outfit/bandit3a.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	10;
+ITEM.DefaultPrice = 	6000;
+ITEM.Durability =		10;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_bandit/stalker_bandit_7.mdl");
+ITEM.BodyArmor = 		15;
+ITEM.BurnResist = 		5;
+ITEM.AcidResist = 		5;
+ITEM.ElectroResist = 	5;
+ITEM.ColdResist = 		5;
+ITEM.Inventory =		"inv_squaddie";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

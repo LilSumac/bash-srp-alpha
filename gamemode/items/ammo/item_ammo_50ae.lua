@@ -1,0 +1,15 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_50ae";
+ITEM.Name =				".50 AE Rounds";
+ITEM.Description =		"A box of large, high-powered rounds made for massive handguns.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/50cal.mdl");
+ITEM.LootHidden =       true;
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	3000;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    10;
+ITEM.MaxStacks =        100;
+BASH:ProcessItem(ITEM);

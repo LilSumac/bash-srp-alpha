@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"seva_2g_urban";
+ITEM.Name =				"2G Urban SEVA";
+ITEM.Description =		"A second-generation SEVA suit, which features better ballistics and fantastic anomalous protection. Made with an urban color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/seva_merc.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =			10;
+ITEM.DefaultStock = 	15;
+ITEM.DefaultPrice = 	42000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/seva_urban.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      30;
+ITEM.BurnResist = 		30;
+ITEM.AcidResist = 		30;
+ITEM.ElectroResist = 	30;
+ITEM.ColdResist = 		30;
+ITEM.Inventory =		"inv_seva";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

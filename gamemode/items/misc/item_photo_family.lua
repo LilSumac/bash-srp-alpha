@@ -1,0 +1,11 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"photo_family";
+ITEM.Name =				"Family Photo";
+ITEM.Description =		"A sentimental family photo from times past. They look happy here.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_lab/frame002a.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     50;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

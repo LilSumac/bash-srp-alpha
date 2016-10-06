@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"mudlark";
+ITEM.Name =				"Mudlark Suit";
+ITEM.Description =		"For the average STALKER who's willing to get more down and dirty than the rest. From the muddiest riverbeds to the iciest groves, this suit will get you there and back.";
+ITEM.FlavorText =		"Tumble dry, low heat.";
+ITEM.WorldModel =		Model("models/stalker/outfit/bandit3.mdl");
+ITEM.Tier =             2;
+ITEM.LootHidden =       false;
+ITEM.Weight =			4;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	2500;
+ITEM.Durability =		3;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_bandit/stalker_gasmask_02.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		3;
+ITEM.BurnResist = 		3;
+ITEM.AcidResist = 		3;
+ITEM.ElectroResist = 	3;
+ITEM.ColdResist = 		3;
+ITEM.Inventory =		"inv_trenchcoat";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

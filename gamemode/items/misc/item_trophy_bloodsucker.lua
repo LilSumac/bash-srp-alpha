@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"trophy_bloodsucker";
+ITEM.Name =				"Bloodsucker Tendrils";
+ITEM.Description =		"The slithering tendrils of a slain bloodsucker. The mark of an accomplished mutant hunter.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/artifacts/gravi.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     8000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

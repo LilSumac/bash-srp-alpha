@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"toy_horse";
+ITEM.Name =				"Toy Horse";
+ITEM.Description =		"A small children\'s toy resembling a horsie. Worn by the years...";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_c17/statue_horse.mdl");
+ITEM.ModelScale =       0.075;
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     75;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

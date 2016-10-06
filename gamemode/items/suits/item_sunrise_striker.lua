@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"sunrise_striker";
+ITEM.Name =				"Striker Sunrise";
+ITEM.Description =		"Truly the flagship suit of STALKERs Zone-wide. The perfect balance of practicality and protection. On top of the standard kit, this suit features a more durable ballistic vest and a lighter, brush-type color scheme.";
+ITEM.FlavorText =		"Get out of here, STALKER!";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/sunrise_loner.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	25;
+ITEM.DefaultPrice = 	17000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_bandit/stalker_merc_10.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      10;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_sunrise";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

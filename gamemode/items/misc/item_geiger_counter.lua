@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"geiger_counter";
+ITEM.Name =				"Geiger Counter";
+ITEM.Description =		"A small, handheld device that emits noise when detectable radation is present.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/sensor_a.mdl");
+ITEM.Weight =			0.5;
+ITEM.DefaultStock = 	1000;
+ITEM.DefaultPrice = 	100;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

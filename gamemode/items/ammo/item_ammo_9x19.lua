@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_9x19";
+ITEM.Name =				"9x19mm Rounds";
+ITEM.Description =		"A box of NATO small arms rounds analogous to the Soviet 9x18mm round.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/9x19.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	4000;
+ITEM.DefaultPrice = 	150;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    30;
+ITEM.MaxStacks =        300;
+BASH:ProcessItem(ITEM);

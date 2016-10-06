@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"trophy_snork";
+ITEM.Name =				"Snork Gasmask";
+ITEM.Description =		"The old, bloody gasmask of a deceased snork. The mark of an accomplished mutant hunter.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/artifacts/gravi.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     5000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

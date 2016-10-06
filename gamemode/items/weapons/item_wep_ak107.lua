@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_ak107";
+ITEM.Name =             "AK-107";
+ITEM.Description =      "A member of the AK-100 family, implementing a new gas system. Chambers a 5.45x39mm round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_ak107.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =           4;
+ITEM.DefaultStock =     15;
+ITEM.DefaultPrice =     16000;
+ITEM.Durability =       5000;
+ITEM.MetalYield =       3;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_ak107";
+ITEM.AmmoType =         "545x39";
+BASH:ProcessItem(ITEM);

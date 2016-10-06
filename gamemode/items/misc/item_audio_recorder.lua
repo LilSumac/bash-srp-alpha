@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"audio_recorder";
+ITEM.Name =				"Audio Recorder";
+ITEM.Description =		"A simple device used for recording and playing back audio.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/sensor_d.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     2000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

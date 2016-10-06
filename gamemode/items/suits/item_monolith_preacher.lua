@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"monolith_preacher";
+ITEM.Name =				"Monolith Preacher Suit";
+ITEM.Description =		"The unoffical uniform of the fearsome Monolith preachers. The mask comes with built in electronics to boost one's voice volume.";
+ITEM.FlavorText =		"Fight, disciples! For the Monolith!";
+ITEM.WorldModel =		Model("models/stalker/outfit/bandit3.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			3;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	20000;
+ITEM.Durability =		3;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_monolith/stalker_monolith_preacher.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		3;
+ITEM.BurnResist = 		3;
+ITEM.AcidResist = 		3;
+ITEM.ElectroResist = 	3;
+ITEM.ColdResist = 		3;
+ITEM.Inventory =		"inv_trenchcoat";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

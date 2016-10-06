@@ -1,0 +1,15 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_338lapua";
+ITEM.Name =				".338 Lapua Rounds";
+ITEM.Description =		"A box of very expensive, dual-purpose (anti-material and anti-personnel) rounds.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/762x51.mdl");
+ITEM.LootHidden =       true;
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	1000;
+ITEM.DefaultPrice = 	800;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    10;
+ITEM.MaxStacks =        100;
+BASH:ProcessItem(ITEM);

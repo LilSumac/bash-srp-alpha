@@ -1,0 +1,21 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_ak47";
+ITEM.Name =             "AK-47";
+ITEM.Description =      "One of the most iconic rifles of the modern era, now out of production. Chambers an older 7.62x39mm round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_ak47.mdl");
+ITEM.Tier =             2;
+ITEM.LootHidden =       false;
+ITEM.Weight =           4;
+ITEM.DefaultStock =     10;
+ITEM.DefaultPrice =     12000;
+ITEM.Durability =       4000;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_ak47";
+ITEM.AmmoType =         "762x39";
+BASH:ProcessItem(ITEM);

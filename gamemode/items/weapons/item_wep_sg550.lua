@@ -1,0 +1,21 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_sg550";
+ITEM.Name =             "SG 550";
+ITEM.Description =      "The Swiss successor to the Stgw 57 battle rifle. Chambers a 5.56x45mm round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_sg550_long.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =           4;
+ITEM.DefaultStock =     4;
+ITEM.DefaultPrice =     28000;
+ITEM.Durability =       5000;
+ITEM.MetalYield =       4;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_sg550";
+ITEM.AmmoType =         "556x45";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

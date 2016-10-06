@@ -1,0 +1,22 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_makarov";
+ITEM.Name =             "Makarov";
+ITEM.Description =      "A small, compact Russian sidearm that was the successor to the TT-30. Chambers a 9x18mm Makarov round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_makaro.mdl");
+ITEM.Tier =             1;
+ITEM.LootHidden =       false;
+ITEM.Weight =           0.7;
+ITEM.DefaultStock =     40;
+ITEM.DefaultPrice =     1000;
+ITEM.Durability =       1000;
+ITEM.MetalYield =       1;
+ITEM.ItemSize =         SIZE_SMALL;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Secondary";
+ITEM.WeaponEntity =     "bash_wep_makarov";
+ITEM.AmmoType =         "9x18";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

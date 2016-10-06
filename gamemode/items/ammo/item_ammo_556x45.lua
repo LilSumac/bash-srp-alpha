@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_556x45";
+ITEM.Name =				"5.56x45mm Rounds";
+ITEM.Description =		"A box of intermediate cartridges developed specifically for NATO forces. Derived from the .223 Remington cartridge.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/556x45.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	3000;
+ITEM.DefaultPrice = 	500;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    30;
+ITEM.MaxStacks =        300;
+BASH:ProcessItem(ITEM);

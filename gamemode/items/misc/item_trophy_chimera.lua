@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"trophy_chimera";
+ITEM.Name =				"Chimera Paw";
+ITEM.Description =		"The huge, mutilated paw of a chimera. The mark of an expert mutant hunter.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/artifacts/gravi.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     16000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,10 @@
+local BASH = BASH;
+local QUIRK = {};
+QUIRK.ID = "morehunger";
+QUIRK.Name = "Bottomless Stomach";
+QUIRK.Description = "[Hunger] +HUNGER | +MAX STAMINA";
+QUIRK.QuirkType = "hunger";
+QUIRK.NormalMaxStamina = 25;
+QUIRK.HungryMaxStamina = 10;
+QUIRK.HungerLength = -1800;
+BASH:ProcessQuirk(QUIRK);

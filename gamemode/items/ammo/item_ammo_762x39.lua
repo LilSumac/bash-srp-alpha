@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_762x39";
+ITEM.Name =				"7.62x39mm Rounds";
+ITEM.Description =		"A box of Soviet rifle cartridges whose caliber saw action throughout much of the early- to mid-20th century.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/762x39.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	3000;
+ITEM.DefaultPrice = 	400;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    30;
+ITEM.MaxStacks =        300;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"backpack_brown";
+ITEM.Name =				"Brown Backpack";
+ITEM.Description =		"A rugged brown backpack with plenty of space for storing collectibles.";
+ITEM.FlavorText =		"Yum, yum, yum, yum, yum. Delicioso!";
+ITEM.WorldModel =		Model("models/fallout 3/backpack_6.mdl");
+ITEM.ModelColor =       Color(209, 139, 89);
+ITEM.Tier =             2;
+ITEM.LootHidden =       true;
+ITEM.Weight =			4;
+ITEM.DefaultStock = 	15;
+ITEM.DefaultPrice = 	1500;
+ITEM.FabricYield =		4;
+ITEM.ItemSize =         SIZE_LARGE;
+
+ITEM.IsAccessory =		true;
+ITEM.Inventory =		"inv_backpack";
+ITEM.StorageSize =      STORAGE_LARGE;
+BASH:ProcessItem(ITEM);

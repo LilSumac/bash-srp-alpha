@@ -1,0 +1,11 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"detector_echo";
+ITEM.Name =				"Echo Detector";
+ITEM.Description =		"A detector that utilizes simple anomalous particle detection technology in order to sense the prescence of anomalies.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/detector_echo.mdl");
+ITEM.DefaultStock =     10;
+ITEM.DefaultPrice =     1000;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

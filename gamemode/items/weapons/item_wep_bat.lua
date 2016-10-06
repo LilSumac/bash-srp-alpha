@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_bat";
+ITEM.Name =             "Metal Bat";
+ITEM.Description =      "A long metal bat used in baseball.";
+ITEM.FlavorText =       "Batter up!";
+ITEM.WorldModel =       Model("models/weapons/w_bat.mdl");
+ITEM.Tier =             1;
+ITEM.LootHidden =       false;
+ITEM.Weight =           0.75;
+ITEM.DefaultStock =     10;
+ITEM.DefaultPrice =     500;
+ITEM.Durability =       1000;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Melee";
+ITEM.WeaponEntity =     "bash_wep_bat";
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"cossack";
+ITEM.Name =				"Cossack Suit";
+ITEM.Description =		"An improved version of the Nomad suit, this outfit has been geared up with better protection all across the body, a darker green hue, and a long hood for keeping dry.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc3.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			4;
+ITEM.DefaultStock = 	10;
+ITEM.DefaultPrice = 	9000;
+ITEM.Durability =		10;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/bandit_zaku3.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		15;
+ITEM.BurnResist = 		5;
+ITEM.AcidResist = 		5;
+ITEM.ElectroResist = 	5;
+ITEM.ColdResist = 		5;
+ITEM.Inventory =		"inv_cossack";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

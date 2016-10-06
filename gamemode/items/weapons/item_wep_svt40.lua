@@ -1,0 +1,22 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_svt40";
+ITEM.Name =             "SVT-40";
+ITEM.Description =      "A Soviet battle rifle that saw widespread use during and after World War II. Chambers a 7.62x54mmR round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_svt40.mdl");
+ITEM.Tier =             1;
+ITEM.LootHidden =       false;
+ITEM.Weight =           4;
+ITEM.DefaultStock =     6;
+ITEM.DefaultPrice =     5000;
+ITEM.Durability =       3000;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_svt40";
+ITEM.AmmoType =         "762x54";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

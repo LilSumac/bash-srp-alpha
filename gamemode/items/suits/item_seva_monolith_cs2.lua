@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"seva_monolith_cs2";
+ITEM.Name =				"Monolith CS-2 SEVA ADP";
+ITEM.Description =		"A very unique suit crafted by Monolithian hands. Combines the anomalous protection of a SEVA with the toughness of a CS-2, all combined under the classic arctic color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc2.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	40000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/seva_monolith_cs2.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      30;
+ITEM.BurnResist = 		30;
+ITEM.AcidResist = 		30;
+ITEM.ElectroResist = 	30;
+ITEM.ColdResist = 		30;
+ITEM.Inventory =		"inv_cs2";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

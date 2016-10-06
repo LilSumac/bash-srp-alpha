@@ -1,0 +1,10 @@
+local BASH = BASH;
+local QUIRK = {};
+QUIRK.ID = "moreweight";
+QUIRK.Name = "Muleback";
+QUIRK.Description = "[Weight] +MAX WEIGHT | -MAX STAMINA";
+QUIRK.QuirkType = "weight";
+QUIRK.NormalMaxStamina = -10;
+QUIRK.HungryMaxStamina = -10;
+QUIRK.MaxWeight = 10;
+BASH:ProcessQuirk(QUIRK);

@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_ak103";
+ITEM.Name =             "AK-103";
+ITEM.Description =      "A derivative of the AK-74M rifle, its body consisting mostly of plastic. Chambers a 7.62x39mm round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_ak103.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =           4;
+ITEM.DefaultStock =     15;
+ITEM.DefaultPrice =     14000;
+ITEM.Durability =       5000;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_ak103";
+ITEM.AmmoType =         "762x39";
+BASH:ProcessItem(ITEM);

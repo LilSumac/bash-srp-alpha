@@ -1,0 +1,10 @@
+CustomizableWeaponry:addFireSound("Weapon_pp19vit.1", "weapons/pp19vityaz/mp5-1.wav", 1, 100, CHAN_STATIC)
+CustomizableWeaponry:addFireSound("CW_MP5_FIRE_SUPPRESSED", "weapons/cw_mp5/mp5_fire_suppressed.wav", 1, 70, CHAN_STATIC)
+
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.Cloth", "weapons/pp19vityaz/mp5_cloth.wav")
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.Cliprelease", "weapons/pp19vityaz/mp5_cliprelease.wav")
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.Clipout", "weapons/pp19vityaz/mp5_clipout.wav")
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.Clipin", "weapons/pp19vityaz/mp5_clipin.wav")
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.Slideback", "weapons/pp19vityaz/mp5_slideback.wav")
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.drawcloth", "weapons/pp19vityaz/mp5_drawcloth.wav")
+CustomizableWeaponry:addReloadSound("Weapon_pp19vit.draw", "weapons/pp19vityaz/mp5_draw.wav")

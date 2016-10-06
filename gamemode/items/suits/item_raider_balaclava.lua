@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"raider_balaclava";
+ITEM.Name =				"Raider Suit (Balaclava)";
+ITEM.Description =		"A compilation of protective gear for the heaviest of combat situations. Mirrors the equipment of a modern soldier on the battlefield. Derives itself from the sunrise suit, but with increased protective abilities and more storage. Comes with a simple ballistic helmet.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/berill_mili.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	46000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_neutral/stalker_neutral_17.mdl");
+ITEM.BodyArmor = 		35;
+ITEM.HelmetArmor =      10;
+ITEM.BurnResist = 		20;
+ITEM.AcidResist = 		20;
+ITEM.ElectroResist = 	20;
+ITEM.ColdResist = 		20;
+ITEM.Inventory =		"inv_raider";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

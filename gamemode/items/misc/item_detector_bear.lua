@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"detector_bear";
+ITEM.Name =				"Bear Detector";
+ITEM.Description =		"A more modern detector that also shows the direction of anomalous activity.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/detector_bear.mdl");
+ITEM.DefaultStock =     2;
+ITEM.DefaultPrice =     6000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

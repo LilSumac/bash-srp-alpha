@@ -1,0 +1,6 @@
+"#!/BASH/SRP"
+{
+	"base"		"sandbox"
+	"title"		"#!/BASH/SRP"
+	"author"	"LilSumac"
+}

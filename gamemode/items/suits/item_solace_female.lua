@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"solace_female";
+ITEM.Name =				"Solace Suit (Female)";
+ITEM.Description =		"A lightweight protective suit with an arctic color scheme. Features a compact yet effective ballistic vest and a modern closed-circuit respiratory system.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc1.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			5;
+ITEM.DefaultStock = 	20;
+ITEM.DefaultPrice = 	7000;
+ITEM.Durability =		15;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/bandit_solace_female.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		15;
+ITEM.BurnResist = 		10;
+ITEM.AcidResist = 		10;
+ITEM.ElectroResist = 	10;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_solace";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"utag_gasmask";
+ITEM.Name =				"UTAG (Gasmask)";
+ITEM.Description =		"The \'Urban Tactical Assault Gear\' suit, a rare varient of the military Berill-5M, made instead with a dark, urban color scheme. Comes with a Sphere-08 helmet and gasmask.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc2.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	42500;
+ITEM.Durability =		25;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_hero/stalker_hero_specops_tacti.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      15;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_berill";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

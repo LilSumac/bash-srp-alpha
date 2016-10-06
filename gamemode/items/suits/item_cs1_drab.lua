@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"cs1_drab";
+ITEM.Name =				"Drab CS-1";
+ITEM.Description =		"Standard gear for a Clear Sky assault squad member. Features a tactical vest, kevlar-padded panels throughout the chest and limbs, and a heavy steel helmet. Redesigned with an olive drab color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/outfit/cs_heavy.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	10;
+ITEM.DefaultPrice = 	26000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/cs1_lone.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		35;
+ITEM.HelmetArmor =      20;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_cs1";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

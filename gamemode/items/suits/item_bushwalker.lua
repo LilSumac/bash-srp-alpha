@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"bushwalker";
+ITEM.Name =				"\'The Bushwalker\'";
+ITEM.Description =		"A SKAT-9M suit fitted with a BULAT helmet and ghillie netting to provide camouflage. The ultimate garb for a long-range STALKER.";
+ITEM.FlavorText =		"One shot, one kill.";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/skat_merc.mdl");
+ITEM.Tier =             4;
+ITEM.Weight =			12;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	90000;
+ITEM.Durability =		35;
+ITEM.FabricYield =		10;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/skat_ghillie.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		40;
+ITEM.HelmetArmot =      20;
+ITEM.BurnResist = 		25;
+ITEM.AcidResist = 		25;
+ITEM.ElectroResist = 	25;
+ITEM.ColdResist = 		25;
+ITEM.Inventory =		"inv_skat";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

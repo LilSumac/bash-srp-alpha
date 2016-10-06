@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_rpg";
+ITEM.Name =				"PG-7V Warhead";
+ITEM.Description =		"A large HEAT warhead carrying an explosive payload to be fired from an RPG-7.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/ammo/rpg7.mdl");
+ITEM.LootHidden =       true;
+ITEM.Weight =			3;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	6000;
+ITEM.IsStackable =		false;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"nighthawk_gasmask";
+ITEM.Name =				"Nighthawk (Gasmask)";
+ITEM.Description =		"The Nighthawk suit is a rare varient of the Berill military suit, remade with jet-black material for stealthy operations. Comes with a Sphere-08 helmet and gasmask.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc2.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	46000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_merc/stalker_merc_6.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      15;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_berill";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

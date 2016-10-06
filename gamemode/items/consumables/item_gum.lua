@@ -1,0 +1,22 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"gum";
+ITEM.Name =				"Pack of Gum";
+ITEM.Description =		"A pack of gum with a few pieces left. Not really beneficial in any way, other than for helping with stress and bad breath.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_wasteland/kitchen_fridge001a.mdl");
+ITEM.ModelColor =       Color(0, 0, 0);
+ITEM.ModelScale =       0.05;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    10;
+ITEM.MaxStacks =		10;
+ITEM.DefaultStock =     100;
+ITEM.DefaultPrice =     250;
+
+ITEM.IsConsumable =     true;
+ITEM.ConsumeString =    "Chew";
+ITEM.ConsumeVariable =  "";
+ITEM.ConsumeEffect =    0;
+ITEM.ConsumeMessage =   "You pop a piece of gum into your mouth and begin to chew.";
+ITEM.ConsumeIcon =      "icon16/pill.png";
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,11 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"binder_blue";
+ITEM.Name =				"Blue Binder";
+ITEM.Description =		"A blue binder full of loads of random papers.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/props_lab/binderblue.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     175;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

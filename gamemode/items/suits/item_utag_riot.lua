@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"utag_riot";
+ITEM.Name =				"UTAG (Riot Helmet)";
+ITEM.Description =		"The \'Urban Tactical Assault Gear\' suit, a rare varient of the military Berill-5M, made instead with a dark, urban color scheme. Comes with a heavy riot control helmet.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/io7a_merc2.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	42000;
+ITEM.Durability =		25;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_hero/stalker_hero_specops_tacti.mdl");
+ITEM.BodyArmor = 		30;
+ITEM.HelmetArmor =      20;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_berill";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

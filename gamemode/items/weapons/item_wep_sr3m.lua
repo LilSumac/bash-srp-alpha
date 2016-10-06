@@ -1,0 +1,21 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_sr3m";
+ITEM.Name =             "SR-3 Vikhr";
+ITEM.Description =      "A compact Russian assault rifle based off the AS Val's design. Chambers a 9x39mm subsonic round.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_sr3m.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =           3;
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     62000;
+ITEM.Durability =       5000;
+ITEM.MetalYield =       4;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Primary";
+ITEM.WeaponEntity =     "bash_wep_sr3m";
+ITEM.AmmoType =         "9x39";
+ITEM.Attachments = {};
+BASH:ProcessItem(ITEM);

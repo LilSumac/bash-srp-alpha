@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"trophy_boar";
+ITEM.Name =				"Boar Tusk";
+ITEM.Description =		"The hard tusk of a deceased giant boar. The mark of an accomplished mutant hunter.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/artifacts/gravi.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     3000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

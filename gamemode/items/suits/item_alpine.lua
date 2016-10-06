@@ -1,0 +1,26 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"alpine";
+ITEM.Name =				"Alpine Suit";
+ITEM.Description =		"Perfect for blending into certain snowy areas of the Zone, this suit offers fantastic protection against the winter elements. Comes with a standard gasmask and a small bit of chest rigging.";
+ITEM.FlavorText =		"Winter is coming.";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/bandit1.mdl");
+ITEM.Tier =             2;
+ITEM.Weight =			6;
+ITEM.DefaultStock = 	5;
+ITEM.DefaultPrice = 	3000;
+ITEM.Durability =		10;
+ITEM.FabricYield =		5;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_military/stalker_neutralg2.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		10;
+ITEM.BurnResist = 		10;
+ITEM.AcidResist = 		10;
+ITEM.ElectroResist = 	10;
+ITEM.ColdResist = 		20;
+ITEM.Inventory =		"inv_anorak";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

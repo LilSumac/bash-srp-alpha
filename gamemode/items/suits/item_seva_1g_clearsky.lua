@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"seva_1g_clearsky";
+ITEM.Name =				"1G Clear Sky SEVA";
+ITEM.Description =		"A first-generation SEVA suit, which features adequate ballistics and fantastic anomalous protection. Made with the white and light blue Clear Sky color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/seva_loner.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			8;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	38000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		8;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/seva_clearsky.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		25;
+ITEM.HelmetArmor =      30;
+ITEM.BurnResist = 		30;
+ITEM.AcidResist = 		30;
+ITEM.ElectroResist = 	30;
+ITEM.ColdResist = 		30;
+ITEM.Inventory =		"inv_seva";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

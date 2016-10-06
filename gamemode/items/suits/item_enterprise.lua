@@ -1,0 +1,25 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"enterprise";
+ITEM.Name =				"Enterprise Suit";
+ITEM.Description =		"A middle-tier suit made specifically for storage. Offers similar protection as a sunrise, but features multiple chest pouches, a large ruck, and even a retro gasmask. Popular amongst traders in the Zone.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalker/outfit/cs_heavy.mdl");
+ITEM.Tier =             3;
+ITEM.Weight =			10;
+ITEM.DefaultStock = 	10;
+ITEM.DefaultPrice = 	30000;
+ITEM.Durability =		20;
+ITEM.FabricYield =		6;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/cakez/rxstalker/stalker_freedom/stalker_neutral_7.mdl");
+ITEM.BodyArmor = 		25;
+ITEM.BurnResist = 		15;
+ITEM.AcidResist = 		15;
+ITEM.ElectroResist = 	15;
+ITEM.ColdResist = 		15;
+ITEM.Inventory =		"inv_enterprise";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

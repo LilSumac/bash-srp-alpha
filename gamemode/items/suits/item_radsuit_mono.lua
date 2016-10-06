@@ -1,0 +1,27 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"radsuit_mono";
+ITEM.Name =				"Monolith Radsuit";
+ITEM.Description =		"The pinnacle of personal protection; essentially an exoskeleton without the framing. The thick, heavy kevlar guarentees optimal protection, with the exception of anomalous damage. Made with a monolithian color scheme.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/stalkertnb/outfits/skat_merc.mdl");
+ITEM.Tier =             5;
+ITEM.Weight =			18;
+ITEM.DefaultStock = 	0;
+ITEM.DefaultPrice = 	120000;
+ITEM.Durability =		50;
+ITEM.FabricYield =		15;
+ITEM.ItemSize =         SIZE_LARGE;
+
+ITEM.IsSuit =			true;
+ITEM.PlayerModel =		Model("models/stalkertnb/rad_mono.mdl");
+ITEM.Respiration =      true;
+ITEM.BodyArmor = 		50;
+ITEM.HelmetArmor =      20;
+ITEM.BurnResist = 		25;
+ITEM.AcidResist = 		25;
+ITEM.ElectroResist = 	25;
+ITEM.ColdResist = 		25;
+ITEM.Inventory =		"inv_rad";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =               "wep_crowbar";
+ITEM.Name =             "Crowbar";
+ITEM.Description =      "A steel crowbar, capable of prying and bashing.";
+ITEM.FlavorText =       "";
+ITEM.WorldModel =       Model("models/weapons/w_crowbar.mdl");
+ITEM.Tier =             1;
+ITEM.LootHidden =       false;
+ITEM.Weight =           2;
+ITEM.DefaultStock =     20;
+ITEM.DefaultPrice =     1250;
+ITEM.Durability =       2000;
+ITEM.MetalYield =       2;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsWeapon =         true;
+ITEM.SlotType =         "Melee";
+ITEM.WeaponEntity =     "bash_wep_crowbar";
+BASH:ProcessItem(ITEM);

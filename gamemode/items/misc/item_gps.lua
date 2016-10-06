@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"gps";
+ITEM.Name =				"GPS";
+ITEM.Description =		"A small, digital device that triangulates its position via satellite communication.";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/sensor_b.mdl");
+ITEM.Weight =           0.5;
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     2000;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);

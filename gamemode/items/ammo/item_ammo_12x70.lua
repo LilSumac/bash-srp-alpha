@@ -1,0 +1,14 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"ammo_12x70";
+ITEM.Name =				"12x70mm Buckshot";
+ITEM.Description =		"A box of 12 Gauge shotgun shells that fire spherical pellets which possess fantastic short-range and stunning abilities, but lack in terms of penetration.";
+ITEM.FlavorText =		"Eat leaden death, demon.";
+ITEM.WorldModel =		Model("models/stalker/ammo/12x70.mdl");
+ITEM.Weight =			0.01;
+ITEM.DefaultStock = 	2000;
+ITEM.DefaultPrice = 	150;
+ITEM.IsStackable =		true;
+ITEM.DefaultStacks =    10;
+ITEM.MaxStacks =        100;
+BASH:ProcessItem(ITEM);

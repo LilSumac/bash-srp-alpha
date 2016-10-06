@@ -1,0 +1,20 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"satchel_military";
+ITEM.Name =				"Military Satchel";
+ITEM.Description =		"A medium-sized camouflaged satchel that can hold a few belongings.";
+ITEM.FlavorText =		"Private, drop that man-purse!";
+ITEM.WorldModel =		Model("models/fallout 3/backpack_2.mdl");
+ITEM.ModelColor =       Color(0, 200, 0);
+ITEM.Weight =			3;
+ITEM.Tier =             1;
+ITEM.LootHidden =       true;
+ITEM.DefaultStock = 	2;
+ITEM.DefaultPrice = 	1000;
+ITEM.FabricYield =		3;
+ITEM.ItemSize =         SIZE_MED;
+
+ITEM.IsAccessory =		true;
+ITEM.Inventory =		"inv_satchel";
+ITEM.StorageSize =      STORAGE_MED;
+BASH:ProcessItem(ITEM);

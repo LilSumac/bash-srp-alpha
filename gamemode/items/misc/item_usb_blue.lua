@@ -1,0 +1,12 @@
+local BASH = BASH;
+local ITEM = {};
+ITEM.ID =				"usb_blue";
+ITEM.Name =				"Blue USB Drive";
+ITEM.Description =		"A simple USB thumbdrive. Who knows what could be stored within?";
+ITEM.FlavorText =		"";
+ITEM.WorldModel =		Model("models/kali/miscstuff/stalker/usb_a.mdl");
+ITEM.DefaultStock =     0;
+ITEM.DefaultPrice =     4000;
+ITEM.LootHidden =       true;
+ITEM.NoProperties =     true;
+BASH:ProcessItem(ITEM);
