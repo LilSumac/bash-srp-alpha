@@ -7,9 +7,12 @@ This is a collection of code that spans nearly two years of development; it cont
 
 ### Credits
 Weapon Base: Spy & associates. The base used is a modified version of the CW 2.0 weapon base, and all credits go to its creators.
+
 Content: Dave Brown, TnB Community, STALKER Misery Mod
+
 GUI Elements: TacoScript SRP
 
 ### Content
 https://www.dropbox.com/s/fkg7r3lq7hxht9n/bash-alpha-release.zip?dl=0
+
 This link contains the initial release of the gamemode. Delete it, do not use it, as this repository hosts the most recent, working version. Use this download only for the content & weapon base.
