@@ -1,6 +1,13 @@
 local BASH = BASH;
 local string = string;
 
+/*
+**	MsgCon
+**	Console logging utility function.
+**		color: Color of the text.
+**		text: Text to log.
+**		log: Whether or not to log the text.
+*/
 function MsgCon(color, text, log)
 	MsgC(color, text .. '\n');
 
@@ -9,6 +16,11 @@ function MsgCon(color, text, log)
 	end
 end
 
+/*
+**	MsgErr
+**	Error logging utility function.
+**		text: Error text to log.
+*/
 function MsgErr(text)
 	MsgC(color_red, text .. '\n');
 
@@ -17,6 +29,11 @@ function MsgErr(text)
 	BASH:WriteToFile("errors/" .. date .. ".txt", "[" .. time .. "]: " .. text);
 end
 
+/*
+**	Broadcast
+**	Prints a message to every player's chat.
+**		text: Text to print.
+*/
 function Broadcast(text)
 	for _, ply in pairs(player.GetAll()) do
 		if ply:GetEntry("CharLoaded") then
@@ -25,6 +42,11 @@ function Broadcast(text)
 	end
 end
 
+/*
+**	CommandPrint
+**	Sends command information to all staff.
+**		text: Text to send.
+*/
 function CommandPrint(text)
 	local recipients = {};
 	for _, _ply in pairs(player.GetAll()) do
@@ -39,89 +61,44 @@ function CommandPrint(text)
 	netstream.Start(recipients, "BASH_Return_Chat", {"", text, text, CHAT_TYPES.CMD.ID});
 end
 
+/*
+**	CheckPly
+**	Checks whether an entity is a valid player.
+**		ply: Entity to check.
+**	returns: boolean
+*/
 function CheckPly(ply)
-	if !ply or !ply:IsValid() or !ply:IsPlayer() then
-		return false;
-	elseif ply:IsValid() and ply:IsPlayer() then
-		return true;
-	end
-
-	return false;
+	return ply and ply:IsValid() and ply:IsPlayer();
 end
 
+/*
+**	CheckChar
+**	Checks whether an entity is a valid player with a valid
+**	character loaded.
+**		ply: Entity to check.
+**	returns: boolean
+*/
 function CheckChar(ply)
-	if !CheckPly(ply) or !ply.PlyData or !ply.CharData then
-		return false;
-	elseif ply:GetEntry("CharLoaded") and ply:GetEntry("CharID") then
-		return true;
-	end
-
-	return false;
+	return CheckPly(ply) and ply.PlyData and ply.CharData and ply:GetEntry("CharLoaded") and ply:GetEntry("CharID");
 end
 
+/*
+**	IsEmpty
+**	Table utility function to check if a table is empty.
+**		color: Color of the text.
+**		text: Text to log.
+**		log: Whether or not to log the text.
+*/
 function IsEmpty(tab)
-	if !tab or tab[1] == nil then
-		return true;
-	else
-		return false;
-	end
+	return !(tab and table.Count(tab) > 0);
 end
 
-function FormatString(str, font, size)
-	if SERVER then return end;
-
-	if string.len(str) == 1 then return str, 0 end;
-
-	local start = 1;
-	local c = 1;
-
-	surface.SetFont(font);
-
-	local endstr = "";
-	local n = 0;
-	local lastspace = 0;
-	local lastspacemade = 0;
-
-	while string.len(str or "") > c do
-		local sub = string.sub(str, start, c);
-
-		if string.sub(str, c, c) == " " then
-			lastspace = c;
-		end
-
-		if surface.GetTextSize(sub) >= size and lastspace != lastspacemade then
-			local sub2;
-
-			if lastspace == 0 then
-				lastspace = c;
-				lastspacemade = c;
-			end
-
-			if lastspace > 1 then
-				sub2 = string.sub(str, start, lastspace - 1);
-				c = lastspace;
-			else
-				sub2 = string.sub(str, start, c);
-			end
-
-			endstr = endstr .. sub2 .. "\n";
-			lastspace = c + 1;
-			lastspacemade = lastspace;
-
-			start = c + 1;
-			n = n + 1;
-		end
-
-		c = c + 1;
-	end
-
-	if start < string.len(str or "") then
-		endstr = endstr .. string.sub(str or "", start);
-	end
-
-	return endstr, n;
-end
-
+/*
+**	ChokeString
+**	Truncates a string to a certain length, appending '...' to the end.
+**		text: Text to truncate.
+**		max: Max length to allow.
+*/
 function ChokeString(text, max)
 	if !text then return end;
 

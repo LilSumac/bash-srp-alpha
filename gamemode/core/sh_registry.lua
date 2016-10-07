@@ -4,6 +4,17 @@ BASH.Registry = {};
 BASH.Registry.Variables = {};
 BASH.Registry.Players = {};
 
+/*
+**	BASH.Registry.NewVariable
+**	Adds a new player variable to the registry.
+**		name: Name of the variable.
+**		default: Default value of the variable.
+**		public: Whether or not the variable is public (accessible by all players).
+**		secure: Whether or not the variable is secure (settable client-side).
+**		isPlayerVar: Whether or not the variable is a player-linked variable
+**		(originating from the player SQL table).
+**		initFunc: Function to call when the player is registered with that variable.
+*/
 function BASH.Registry:NewVariable(name, default, public, secure, isPlayerVar, initFunc)
 	if !name or default == nil then return end;
 

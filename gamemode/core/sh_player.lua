@@ -349,6 +349,11 @@ function Player:IsWearing(article)
 	return false;
 end
 
+/*
+**  Player.HasRespiration
+**  Checks to see if a player is wearing a respiration device.
+**  returns: boolean
+*/
 function Player:HasRespiration()
 	if self:IsWearing("respirator") or self:IsWearing("gasmask") then return true end;
 
@@ -368,18 +373,39 @@ function Player:HasRespiration()
 	return hasResp;
 end
 
+/*
+**  Player.IsSumac
+**  Coolest function on the planet.
+**  returns: boolean
+*/
 function Player:IsSumac()
 	return self:SteamID() == "STEAM_0:1:26293888";
 end
 
+/*
+**  Player.IsHelper
+**  Checks to see if a player has the helper flag/is a staff
+**	member.
+**  returns: boolean
+*/
 function Player:IsHelper()
 	return self:HasFlag("g") or self:IsStaff();
 end
 
+/*
+**  Player.IsStaff
+**  Checks to see if a player is a staff member.
+**  returns: boolean
+*/
 function Player:IsStaff()
 	return self:HasFlag("q") or self:HasFlag("a") or self:HasFlag("d") or self:IsSumac();
 end
 
+/*
+**  Player.IsWearingExo
+**  Checks to see if a player is wearing an exo suit.
+**  returns: boolean
+*/
 function Player:IsWearingExo()
 	return string.sub(self:GetEntry("Suit"), 1, 4) == "exo_";
 end
@@ -388,13 +414,21 @@ end
 **  Inventory Functions
 */
 
+/*
+**  Player.RefreshWeight
+**  A utility function that updates a player's weight based on
+**	their items/equipment.
+*/
 function Player:RefreshWeight()
 	local weight = 0;
+	//	Get suit weight.
 	local suit, _ = ParseDouble(self:GetEntry("Suit"));
 	if suit != "" then
 		local suitData = BASH.Items[suit];
 		weight = weight + suitData.Weight;
 	end
+
+	//	Get accessory weight.
 	local acc = self:GetEntry("Acc");
 	local accHasInv = true;
 	if acc != "" then
@@ -402,6 +436,8 @@ function Player:RefreshWeight()
 		if accData.NoInventory then accHasInv = false end;
 		weight = weight + accData.Weight;
 	end
+
+	//	Get equipment weight.
 	local weps = self:GetEntry("Weapons");
 	weps = util.JSONToTable(weps);
 	for index, wep in pairs(weps) do
@@ -414,10 +450,10 @@ function Player:RefreshWeight()
 				for ind, att in pairs(wep.Attachments) do
 					local attData;
 					for id, item in pairs(BASH.Items) do
-						if istable(att) then
-							attData = BASH.Items[att.ent];
-						else
-							attData = BASH.Items[att];
+						if !item.IsAttachment then continue end;
+						if item.AttachmentEnt == ((istable(att) and att.ent) or att) then
+							weight = weight + item.Weight;
+							break;
 						end
 					end
 				end
@@ -425,6 +461,7 @@ function Player:RefreshWeight()
 		end
 	end
 
+	//	Get main inventory weight.
 	local invMain = util.JSONToTable(self:GetEntry("InvMain"));
 	for invX = 1, #invMain.Content do
 		for invY = 1, #invMain.Content[1] do
@@ -453,6 +490,8 @@ function Player:RefreshWeight()
 			end
 		end
 	end
+
+	//	Get secondary inventory weight.
 	local invSec = util.JSONToTable(self:GetEntry("InvSec"));
 	for invX = 1, #invSec.Content do
 		for invY = 1, #invSec.Content[1] do
@@ -481,6 +520,8 @@ function Player:RefreshWeight()
 			end
 		end
 	end
+
+	//	Get accessory inventory weight.
 	local invAcc = util.JSONToTable(self:GetEntry("InvAcc"));
 	if accHasInv then
 		for invX = 1, #invAcc.Content do
@@ -511,6 +552,8 @@ function Player:RefreshWeight()
 			end
 		end
 	end
+
+	//	Get clothing weight.
 	local clothing = util.JSONToTable(self:GetEntry("Clothing"));
 	for index, bodyPart in pairs(BODY_PARTS) do
 		local curItem = clothing[bodyPart];
@@ -520,9 +563,11 @@ function Player:RefreshWeight()
 			weight = weight + itemWeight;
 		end
 	end
+
 	self:UpdateEntry("Weight", weight);
 end
 
+//	Ban all hackers!
 netstream.Hook("BASH_Remove_Nerd", function(ply, data)
 	if !CheckPly(ply) then return end;
 

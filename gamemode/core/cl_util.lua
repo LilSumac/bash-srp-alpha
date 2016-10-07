@@ -17,6 +17,66 @@ function PositionIsInArea(posX, posY, firstPosX, firstPosY, secondPosX, secondPo
 end
 
 /*
+**	FormatString
+**	Wraps a text with a specific font to a certain constraint.
+**		str: String to wrap.
+**		font: Font of the string.
+**		size: Size of the constraint.
+*/
+function FormatString(str, font, size)
+	if string.len(str) == 1 then return str, 0 end;
+
+	local start = 1;
+	local c = 1;
+
+	surface.SetFont(font);
+
+	local endstr = "";
+	local n = 0;
+	local lastspace = 0;
+	local lastspacemade = 0;
+
+	while string.len(str or "") > c do
+		local sub = string.sub(str, start, c);
+
+		if string.sub(str, c, c) == " " then
+			lastspace = c;
+		end
+
+		if surface.GetTextSize(sub) >= size and lastspace != lastspacemade then
+			local sub2;
+
+			if lastspace == 0 then
+				lastspace = c;
+				lastspacemade = c;
+			end
+
+			if lastspace > 1 then
+				sub2 = string.sub(str, start, lastspace - 1);
+				c = lastspace;
+			else
+				sub2 = string.sub(str, start, c);
+			end
+
+			endstr = endstr .. sub2 .. "\n";
+			lastspace = c + 1;
+			lastspacemade = lastspace;
+
+			start = c + 1;
+			n = n + 1;
+		end
+
+		c = c + 1;
+	end
+
+	if start < string.len(str or "") then
+		endstr = endstr .. string.sub(str or "", start);
+	end
+
+	return endstr, n;
+end
+
+/*
 **	BASH.GUIOpen
 **	Returns whether or not major GUI elements (intro/quiz/character menu) are open.
 **	returns: boolean
