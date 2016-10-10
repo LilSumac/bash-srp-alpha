@@ -295,6 +295,10 @@ function BASH:ProcessDirectory(directory, print)
 	end
 end
 
+/*
+**	BASH.ProcessModules
+**	Processes all of the modules located in the /modules folder.
+*/
 function BASH:ProcessModules()
 	if !self.Modules then
 		self.Modules = {};
@@ -321,6 +325,11 @@ function BASH:ProcessModules()
 	self:CheckDependencies();
 end
 
+/*
+**	BASH.CheckDependencies
+**	Goes through each loaded module and checks to see if each of
+**	their dependencies are met.
+*/
 function BASH:CheckDependencies()
     MsgCon(color_green, "Checking dependencies...");
 	local throw = false;
@@ -343,6 +352,12 @@ function BASH:CheckDependencies()
 	end
 end
 
+/*
+**	BASH.ProcessItem
+**	Processes a new item contained in a data table, assigning
+**	default values where appropriate.
+**		item: Item table to be processed.
+*/
 function BASH:ProcessItem(item)
 	local id = item.ID or self:RandomString(16);
 	local tab = hook.Call("OnItemProcess", nil, item) or {};
@@ -533,6 +548,12 @@ function BASH:ProcessItem(item)
 	end
 end
 
+/*
+**	BASH.ProcessFaction
+**	Processes a new faction contained in a data table, assigning
+**	default values where appropriate.
+**		faction: Table to be processed.
+*/
 function BASH:ProcessFaction(faction)
 	local tab = {};
 	tab.ID = faction.ID or self:RandomString(8);
@@ -557,6 +578,12 @@ function BASH:ProcessFaction(faction)
 	end
 end
 
+/*
+**	BASH.ProcessQuirk
+**	Processes a new character quirk contained in a data table,
+**	assigning default values where appropriate.
+**		quirk: Quirk table to be processed.
+*/
 function BASH:ProcessQuirk(quirk)
 	local tab = {};
 	tab.ID = quirk.ID or self:RandomString(8);
@@ -584,6 +611,12 @@ function BASH:ProcessQuirk(quirk)
 	end
 end
 
+/*
+**	BASH.ProcessInventory
+**	Processes a new inventory structure contained in a data table,
+**	assigning default values where appropriate.
+**		inv: Inventory table to be processed.
+*/
 function BASH:ProcessInventory(inv)
 	local tab = {};
 	tab.Name = inv.Name or "Inventory";
@@ -603,6 +636,12 @@ function BASH:ProcessInventory(inv)
 	end
 end
 
+/*
+**	BASH.InventoryIsEmpty
+**	Goes through an inventory data structure and checks to see if
+**	it's empty.
+**		tab: Inventory table to be processed.
+*/
 function BASH:InventoryIsEmpty(tab)
 	for invX = 1, #tab do
 		for invY = 1, #tab[1] do
@@ -615,6 +654,12 @@ function BASH:InventoryIsEmpty(tab)
 	return true;
 end
 
+/*
+**	BASH.GetRandomItem
+**	Returns a random item based on a certain item tier. Will not
+**	generate suits or clothing.
+**		tier: Max item tier to allow.
+*/
 function BASH:GetRandomItem(tier)
 	local items = {};
 	local index = 1;
@@ -668,6 +713,11 @@ function BASH:GetRandomItem(tier)
 	return randomItem, itemArgs;
 end
 
+/*
+**	BASH.FindAttByID
+**	Finds an attachment item by its entity ID.
+**		id: Attachment entity ID to search for.
+*/
 function BASH:FindAttByID(id)
 	for itemID, item in pairs(self.Items) do
 		if item.IsAttachment and item.AttachmentEnt == id then
@@ -676,20 +726,43 @@ function BASH:FindAttByID(id)
 	end
 end
 
+/*
+**	BASH.CreateFile
+**	Safely creates a new file.
+**		name: Name/path of the file to create.
+*/
 function BASH:CreateFile(name)
 	if file.Exists(name, "DATA") then return end;
 	file.Write(name, "");
 end
 
+/*
+**	BASH.CreateDirectory
+**	Safely creates a new directory.
+**		name: Name/path of the directory to create.
+*/
 function BASH:CreateDirectory(name)
 	if file.Exists(name, "DATA") then return end;
 	file.CreateDir(name);
 end
 
+/*
+**	BASH.GetSafeFilename
+**	Creates a filename-safe string from a given one.
+**		name: String to make safe.
+*/
 function BASH:GetSafeFilename(name)
 	return string.gsub(string.gsub(string.gsub(name, "%.[^%.]*$", ""), "[^\32-\126]", ""), "[^%w-_/]", "") .. ".txt";
 end
 
+/*
+**	BASH.WriteToFile
+**	Writes a given string to a file.
+**		name: Name/path of the file to write to.
+**		text: Text to write.
+**		overwrite: Whether or not to overwrite the current contents
+**			of the file.
+*/
 function BASH:WriteToFile(name, text, overwrite)
 	name = self:GetSafeFilename(name);
 	local dir = string.GetPathFromFilename(name);
@@ -718,6 +791,12 @@ function BASH:WriteToFile(name, text, overwrite)
 	logFile:Close();
 end
 
+/*
+**	BASH.WriteToLog
+**	Writes a given string to the BASH logging file.
+**		text: Text to write.
+**		logType: Logging type to write for.
+*/
 function BASH:WriteToLog(text, logType)
 	if !self:LoggingEnabled() then return end;
 
@@ -725,6 +804,12 @@ function BASH:WriteToLog(text, logType)
 	self:WriteToFile(self:GetLoggingFile(logType), "[" .. time .. "]: " .. text);
 end
 
+/*
+**	BASH.GetLoggingFile
+**	Returns the name/path of the current logging file.
+**		logType: Logging type to search for.
+**	returns: string
+*/
 function BASH:GetLoggingFile(logType)
 	if CLIENT then
 		local fileName = "bash/";
@@ -753,6 +838,12 @@ function BASH:GetLoggingFile(logType)
 	end
 end
 
+/*
+**	BASH.LoggingEnabled
+**	Checks whether or not console/chat logging is enabled. This
+**	will always be true server-side.
+**	returns: boolean
+*/
 function BASH:LoggingEnabled()
 	if CLIENT then
 		return tobool(GetConVarNumber("bash_log_enabled"));
