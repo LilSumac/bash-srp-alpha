@@ -88,6 +88,7 @@ end
 **		color: Color of the text.
 **		text: Text to log.
 **		log: Whether or not to log the text.
+**	returns: boolean
 */
 function IsEmpty(tab)
 	return !(tab and table.Count(tab) > 0);
@@ -98,6 +99,7 @@ end
 **	Truncates a string to a certain length, appending '...' to the end.
 **		text: Text to truncate.
 **		max: Max length to allow.
+**	returns: string
 */
 function ChokeString(text, max)
 	if !text then return end;
@@ -111,6 +113,12 @@ function ChokeString(text, max)
 	return text;
 end
 
+/*
+**	RandomString
+**	Generates a random string of a certain length.
+**		length: Length of the string to generate.
+**	returns: string
+*/
 function RandomString(length)
 	local randomString = "";
 
@@ -121,6 +129,12 @@ function RandomString(length)
 	return randomString;
 end
 
+/*
+**	RandomHandle
+**	Generates a random numeric handle for the PDA system.
+**		length: Length of the handle to generate.
+**	returns: string
+*/
 function RandomHandle(length)
 	local randomHandle = "";
 
@@ -131,12 +145,25 @@ function RandomHandle(length)
 	return randomHandle;
 end
 
+/*
+**	ParseDouble
+**	Parses a string consisting of two values seperated by a ';'.
+**		str: String to parse.
+**	returns: table
+*/
 function ParseDouble(str)
 	local strExplode = string.Explode(';', str);
 	return strExplode[1], strExplode[2];
 end
 
-function SecondsToTime(secs, daytime)
+/*
+**	SecondsToTime
+**	Evaluates a number of seconds into hours, minutes, and seconds
+**	formatted in a digital clock pattern.
+**		secs: Number of seconds to convert.
+**	returns: string
+*/
+function SecondsToTime(secs)
 	local hours = math.floor(secs / 3600);
 	local minutes = math.floor((secs - (hours * 3600)) / 60);
 	local seconds = secs - (hours * 3600) - (minutes * 60);
@@ -144,12 +171,16 @@ function SecondsToTime(secs, daytime)
 	if hours < 10 then hours = "0" .. tostring(hours) end;
 	if minutes < 10 then minutes = "0" .. tostring(minutes) end;
 	if seconds < 10 then seconds = "0" .. tostring(seconds) end;
-	if daytime then
-		hours = hours % 24;
-	end
 	return hours .. ":" .. minutes .. ":" .. seconds;
 end
 
+/*
+**	player.GetBySteamID
+**	Searches through all players and identifies one with a matching
+**	SteamID.
+**		steamID: SteamID to search for.
+**	returns: player
+*/
 function player.GetBySteamID(steamID)
 	for _, ply in pairs(player.GetAll()) do
 		if ply:SteamID() == steamID then
@@ -158,10 +189,19 @@ function player.GetBySteamID(steamID)
 	end
 end
 
+/*
+**	player.GetByInfo
+**	Searches through all players and identifies one with a matching
+**	registry entry.
+**		info: Registry variable to use.
+**		value: Value to search for.
+**		exact: Whether or not to look for exact case matches.
+**	returns: player
+*/
 function player.GetByInfo(info, value, exact)
 	local players = player.GetAll();
 	for _, ply in pairs(players) do
-		if exact then
+		if exact or !isstring(value) then
 			if ply:GetEntry(info) == value then
 				return ply;
 			end
@@ -173,6 +213,11 @@ function player.GetByInfo(info, value, exact)
 	end
 end
 
+/*
+**	player.GetChars
+**	Gets all connected players currently using valid characters.
+**	returns: table
+*/
 function player.GetChars()
 	local tab = {};
 	local players = player.GetAll();
@@ -184,6 +229,11 @@ function player.GetChars()
 	return tab;
 end
 
+/*
+**	player.GetRegistered
+**	Gets all connected players currently registered by the server.
+**	returns: table
+*/
 function player.GetRegistered()
 	local tab = {};
 	local players = player.GetAll();
@@ -195,6 +245,13 @@ function player.GetRegistered()
 	return tab;
 end
 
+/*
+**	BASH.ProcessFile
+**	Includes a file or sends it to clients depending on the file
+**	prefix.
+**		name: Name/path of the file.
+**		print: Whether or not to print once processed.
+*/
 function BASH:ProcessFile(name, print)
 	local fileName = self.FolderName .. "/gamemode/" .. name;
 	local filePrefix = string.sub(string.GetFileFromFilename(name), 1, string.find(string.GetFileFromFilename(name), '_', 1));
@@ -214,6 +271,12 @@ function BASH:ProcessFile(name, print)
 	end
 end
 
+/*
+**	BASH.ProcessDirectory
+**	Includes a directory's contents.
+**		directory: Name/path of the directory.
+**		print: Whether or not to print once a file is processed.
+*/
 function BASH:ProcessDirectory(directory, print)
 	MsgCon(color_green, "Processing directory '" .. directory .. "'...");
 
