@@ -3,6 +3,8 @@ local BASH = BASH;
 DeriveGamemode("sandbox");
 concommand.Remove("gm_save");
 
+//	Add all necessary workshop content. Uncomment if you don't
+//	want this.
 resource.AddWorkshop("185609021");	//	atmos
 resource.AddWorkshop("646315827");	//	rp_stalker_redux
 resource.AddWorkshop("646312597");	//	Map Props
@@ -18,6 +20,10 @@ resource.AddWorkshop("653702990");	//	Weapon Content 5
 resource.AddWorkshop("653705504");	//	Weapon Content 6
 resource.AddWorkshop("653706893");	//	Weapon Content 7
 
+/*
+**	BASH.Init
+**	Initial function called once all files have been processed.
+*/
 function BASH:Init()
 	hook.Call("OnInit", self);
 	self:LoadWriting();
@@ -27,6 +33,11 @@ function BASH:Init()
 	self:SQLInit();
 end
 
+/*
+**	InitPostEntity -> CreateEntities
+**	Loads any persistant storage entities from the last server
+**	shutdown.
+*/
 hook.Add("InitPostEntity", "CreateEntities", function()
 	BASH:LoadPersist();
 	BASH:LoadLoot();
@@ -53,6 +64,10 @@ hook.Add("InitPostEntity", "CreateEntities", function()
 	end
 end);
 
+/*
+**	OnInit -> LoadPhysBlacklist
+**	Loads all blacklisted physgun entries.
+*/
 hook.Add("OnInit", "LoadPhysBlacklist", function()
 	MsgCon(color_green, "Loading physgun blacklist...");
 
@@ -69,6 +84,10 @@ hook.Add("OnInit", "LoadPhysBlacklist", function()
 	MsgCon(color_green, "Loaded physgun blacklist! Entries: " .. table.Count(BASH.PhysgunBlacklist));
 end);
 
+/*
+**	BASH.LoadPersist.
+**	Loads any persistant entites from the last server shutdown.
+*/
 function BASH:LoadPersist()
 	MsgCon(color_green, "Loading map persist file...");
 
@@ -91,6 +110,10 @@ function BASH:LoadPersist()
 	MsgCon(color_green, "Map persist file loaded. Entities: " .. table.Count(tab.Entities) .. " - Constraints: " .. table.Count(tab.Constraints));
 end
 
+/*
+**	BASH.LoadLoot
+**	Loads any persistant loot entites from the last server shutdown.
+*/
 function BASH:LoadLoot()
 	local map = game.GetMap();
 	local loot = "";
@@ -113,13 +136,11 @@ function BASH:LoadLoot()
 		self.LootEnts[id]:SetDelay(lootData.Delay);
 	end
 end
-hook.Add("OnUnsafeRemove", "UnsafeLootRemove", function(ent)
-	if !ent or !ent:IsValid() then return end;
-	if !ent.IsLoot then return end;
 
-	BASH:RemoveWritingData(ent.Writing);
-end);
-
+/*
+**	BASH.LoadWriting
+**	Loads any persistant writing data saved on the server.
+*/
 function BASH:LoadWriting()
 	local writing = "";
 
@@ -133,7 +154,11 @@ function BASH:LoadWriting()
 	MsgCon(color_purple, "Loaded writing data! Entries: " .. table.Count(self.WritingData));
 end
 
-
+/*
+**	BASH.NewWritingData
+**	Creates a new entry under a given unique ID.
+**		id: Unique ID to create the entry under.
+*/
 function BASH:NewWritingData(id)
 	if !self.WritingData or !id then return end;
 
@@ -141,6 +166,11 @@ function BASH:NewWritingData(id)
 	MsgCon(color_purple, "New writing registered: " .. id);
 end
 
+/*
+**	BASH.RemoveWritingData
+**	Deletes a writing entry saved under the given ID.
+**		id: ID of the entry to delete.
+*/
 function BASH:RemoveWritingData(id)
 	if !self.WritingData or !id then return end;
 
@@ -148,6 +178,13 @@ function BASH:RemoveWritingData(id)
 
 	MsgCon(color_purple, "Writing destroyed: " .. id);
 end
+
+/*
+**	OnUnsafeRemove -> UnsafeWritingRemove
+**	A hook called when an item is removed unsafely. If the item
+**	has writing data attached to it, delete said data.
+**		ent: Entity being removed.
+*/
 hook.Add("OnUnsafeRemove", "UnsafeWritingRemove", function(ent)
 	if !ent or !ent:IsValid() then return end;
 	if !ent.ItemData.IsWritable then return end;
@@ -155,6 +192,11 @@ hook.Add("OnUnsafeRemove", "UnsafeWritingRemove", function(ent)
 	BASH:RemoveWritingData(ent.Writing);
 end);
 
+/*
+**	BASH.SaveWriting
+**	Saves all writing data from a table server-side to a file with a
+**	JSON string.
+*/
 function BASH:SaveWriting()
 	if !self.WritingData or self.WritingData == {} then return end;
 	local writing = util.TableToJSON(self.WritingData, true);
@@ -162,10 +204,19 @@ function BASH:SaveWriting()
 
 	MsgCon(color_purple, "Saved writing data! Entries: " .. table.Count(self.WritingData));
 end
+
+/*
+**	ShutDown -> SaveWriting
+**	Saves writing on server shutdown.
+*/
 hook.Add("ShutDown", "SaveWriting", function()
 	BASH:SaveWriting();
 end);
 
+/*
+**	PeriodicSave
+**	Saves all variable data every 5 minutes.
+*/
 local function PeriodicSave()
     MsgCon(color_blue, "Saving all variable data...");
 

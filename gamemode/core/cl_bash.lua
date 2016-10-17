@@ -86,6 +86,10 @@ surface.CreateFont("BASHFontLargeItalic", {
 TEXT_ALIGN_TOP = 4;
 TEXT_ALIGN_BOTTOM = 3;
 
+/*
+**	BASH.Init
+**	Initial function called once all files have been processed.
+*/
 function BASH:Init()
 	//	Initialization process.
 	hook.Call("OnInit", self);
