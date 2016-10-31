@@ -5,6 +5,7 @@ concommand.Remove("gm_save");
 
 //	Add all necessary workshop content. Uncomment if you don't
 //	want this.
+/*
 resource.AddWorkshop("185609021");	//	atmos
 resource.AddWorkshop("646315827");	//	rp_stalker_redux
 resource.AddWorkshop("646312597");	//	Map Props
@@ -19,6 +20,7 @@ resource.AddWorkshop("653699404");	//	Weapon Content 4
 resource.AddWorkshop("653702990");	//	Weapon Content 5
 resource.AddWorkshop("653705504");	//	Weapon Content 6
 resource.AddWorkshop("653706893");	//	Weapon Content 7
+*/
 
 /*
 **	BASH.Init
@@ -272,6 +274,11 @@ local function PeriodicSave()
 end
 timer.Create("PeriodicSave", 300, 0, PeriodicSave);
 
+/*
+**	ShutDown -> SavePasswordedStorage
+**	A hook called upon server shutdown that saves all persistant
+**	storage entities.
+*/
 hook.Add("ShutDown", "SavePasswordedStorage", function()
 	local closets = ents.FindByClass("bash_storage");
 	if !closets then return end;
@@ -296,6 +303,10 @@ hook.Add("ShutDown", "SavePasswordedStorage", function()
 	MsgCon(color_purple, "Saved passworded storage! Entries: " .. tostring(index - 1));
 end);
 
+/*
+**	ShutDown -> SaveLoot
+**	A hook called upon server shutdown that saves all loot entities.
+*/
 hook.Add("ShutDown", "SaveLoot", function()
 	local loots = ents.FindByClass("bash_loot");
 	if !loots then return end;
@@ -314,6 +325,11 @@ hook.Add("ShutDown", "SaveLoot", function()
 	MsgCon(color_purple, "Saved loot spawns! Entries: " .. tostring(index - 1));
 end);
 
+/*
+**	ShutDown -> SavePhysgunBlacklist
+**	A hook called upon server shutdown that saves the physgun
+**	blacklist.
+*/
 hook.Add("ShutDown", "SavePhysgunBlacklist", function()
 	if !BASH.PhysgunBlacklist or BASH.PhysgunBlacklist == {} then return end;
 	local blacklist = util.TableToJSON(BASH.PhysgunBlacklist or {}, true);

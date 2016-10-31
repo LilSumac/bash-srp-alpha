@@ -1,29 +1,40 @@
 local BASH = BASH;
 
-/* For suits:
-** (id, condition, inventory)
+/*
+**	BASH.AddItemToInv
+**	Adds a specified item to the player's inventory.
+**		ply: Player to affect.
+**		inv: Inventory to add item to.
+**		id: ID of item to add.
+**		args: Table of item-specific arguments.
+**		noWeight: Whether or not to account for the item's weight.
+**		newSpot: Whether or not to add the item to a new spot.
 **
-** For accessories:
-** (id, inventory)
+**	For suits:
+**	(id, condition, inventory)
 **
-** For weapons:
-** (id, condition, ammo, attachments)
+**	For accessories:
+**	(id, inventory)
 **
-** For attachments:
-** (id, color)
+**	For weapons:
+**	(id, condition, ammo, attachments)
 **
-** For writable items:
-** (id, writingID)
+**	For attachments:
+**	(id, color)
 **
-** For conditional items:
-** (id, condition)
+**	For writable items:
+**	(id, writingID)
 **
-** For stackable items:
-** (id, stack)
+**	For conditional items:
+**	(id, condition)
+**
+**	For stackable items:
+**	(id, stack)
 */
 function BASH:AddItemToInv(ply, inv, id, args, noWeight, newSpot)
 	if !CheckPly(ply) or !CheckChar(ply) then return false end;
 
+	//	Differentiate between player inventories and storage inventories.
 	local curInv;
 	if inv == "InvStore" then
 		curInv = ply:GetTable().StorageEnt:GetTable().Inventory;
@@ -35,6 +46,7 @@ function BASH:AddItemToInv(ply, inv, id, args, noWeight, newSpot)
 	local itemData = self.Items[id];
 	if !itemData then return false end;
 
+	//	Handle secondary and accessory inventory operations.
 	if inv == "InvSec" then
 		local suit, _ = ParseDouble(ply:GetEntry("Suit"));
 		local suitData = BASH.Items[suit];
@@ -56,7 +68,8 @@ function BASH:AddItemToInv(ply, inv, id, args, noWeight, newSpot)
 			end
 		end
 	end
-	
+
+	//	Restructure item arguments.
 	local newItemTab = {};
 	if itemData.IsSuit then
 		newItemTab.Condition = args[1];
@@ -93,6 +106,7 @@ function BASH:AddItemToInv(ply, inv, id, args, noWeight, newSpot)
 
 	curInv.Content[x][y] = newItemTab;
 
+	//	Handle player weight post-addition.
 	if !noWeight and inv != "InvStore" then
 		local curWeight = ply:GetEntry("Weight");
 		local itemWeight = itemData.Weight * (newItemTab.Stacks or 1);
@@ -108,6 +122,7 @@ function BASH:AddItemToInv(ply, inv, id, args, noWeight, newSpot)
 		ply:UpdateEntry("Weight", curWeight + itemWeight + invWeight);
 	end
 
+	//	Send outcome back to the player.
 	local newInv = util.TableToJSON(curInv);
 	if inv == "InvStore" then
 		ply:GetTable().StorageEnt:GetTable().Inventory = newInv;
@@ -119,7 +134,19 @@ function BASH:AddItemToInv(ply, inv, id, args, noWeight, newSpot)
 	return true;
 end
 
+/*
+**	BASH.NextInvSpot
+**	Gets the next valid inventory spot in a given inventory.
+**		ply: Player to evaluate.
+**		inv: Inventory to evaluate.
+**		itemID: ID of the item being evaluated for.
+**		amount: Amount of the item being evaluated.
+**		needNewSpot: Whether or not an empty spot is required.
+*/
 function BASH:NextInvSpot(ply, inv, itemID, amount, needNewSpot)
+	if !CheckPly(ply) or !CheckChar(ply) then return false end;
+
+	//	Differentiate between player inventories and storage inventories.
 	local curInv;
 	if inv == "InvStore" then
 		curInv = ply:GetTable().StorageEnt:GetTable().Inventory;
@@ -132,6 +159,7 @@ function BASH:NextInvSpot(ply, inv, itemID, amount, needNewSpot)
 	local itemData = self.Items[itemID];
 	if !itemData then return end;
 
+	//	Handle stacking items.
 	if itemData.IsStackable and !needNewSpot then
 		for invY = 1, #curInv[1] do
 			for invX = 1, #curInv do
@@ -152,6 +180,7 @@ function BASH:NextInvSpot(ply, inv, itemID, amount, needNewSpot)
 		end
 	end
 
+	//	Handle non-stacking items.
 	for invY = 1, #curInv[1] do
 		for invX = 1, #curInv do
 			local curItem = curInv[invX][invY];
@@ -163,6 +192,10 @@ function BASH:NextInvSpot(ply, inv, itemID, amount, needNewSpot)
 	end
 end
 
+/*
+**	-> BASH_Pickup_Item
+**	Server-side call of a player picking up an item.
+*/
 netstream.Hook("BASH_Pickup_Item", function(ply, data)
 	if !CheckPly(ply) or !CheckChar(ply) then return end;
 	if !data then return end;
@@ -170,6 +203,10 @@ netstream.Hook("BASH_Pickup_Item", function(ply, data)
 	ply:PickupItem(data);
 end);
 
+/*
+**	-> BASH_Drop_Item
+**	Server-side call of a player dropping an item.
+*/
 netstream.Hook("BASH_Drop_Item", function(ply, data)
 	if !CheckPly(ply) or !CheckChar(ply) then return end;
 	if !data then return end;
@@ -179,6 +216,11 @@ netstream.Hook("BASH_Drop_Item", function(ply, data)
 	ply:DropItem(args);
 end);
 
+/*
+**	-> BASH_Request_Storage
+**	Server-side call of a player requesting use of a storage
+**	entity.
+*/
 netstream.Hook("BASH_Request_Storage", function(ply, data)
 	if !CheckPly(ply) or !CheckChar(ply) then return end;
 	if !data then return end;
@@ -190,6 +232,11 @@ netstream.Hook("BASH_Request_Storage", function(ply, data)
 	netstream.Start(ply, "BASH_Request_Storage_Return", {ent, ent:GetTable().Inventory});
 end);
 
+/*
+**	-> BASH_Update_Storage
+**	Server-side call of a player updating the contents of a
+**	storage entity.
+*/
 netstream.Hook("BASH_Update_Storage", function(ply, data)
 	if !CheckPly(ply) or !CheckChar(ply) then return end;
 	if !data then return end;
