@@ -84,6 +84,7 @@ function BASH:DrawAnomalies()
 	end
 	local arts = ents.FindByClass("bash_item");
 	for index, item in pairs(arts) do
+		if !item:GetTable().ItemData then continue end;
 		if !item:GetTable().ItemData.IsArtifact then continue end;
 		if item:GetPos():Distance(LocalPlayer():GetPos()) > 300 then continue end;
 		scale = 1 - math.Clamp(item:GetPos():Distance(LocalPlayer():GetPos()) / 300, 0, 1);
