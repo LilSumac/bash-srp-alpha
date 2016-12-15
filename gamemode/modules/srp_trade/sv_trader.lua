@@ -9,7 +9,7 @@ function BASH:LoadStock()
 
 	if file.Exists("vars/stock.txt", "DATA") then
 		stock = file.Read("vars/stock.txt", "DATA");
-		stock = util.JSONToTable(stock);
+		stock = util.JSONToTable(stock) or {};
 
 		for id, item in pairs(self.Items) do
 			if !stock[id] then
