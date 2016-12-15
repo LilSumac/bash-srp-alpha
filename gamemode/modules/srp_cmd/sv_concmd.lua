@@ -1,6 +1,7 @@
 local BASH = BASH;
 
 local function NoClip(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or
 		(!ply:IsStaff() and !ply:HasFlag("c") and !ply:HasFlag("e") and !ply:IsTrader())
 	then return end;
@@ -10,6 +11,7 @@ end
 concommand.Add("#!/noclip", NoClip);
 
 local function GiveMoney(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") then return end;
 
 	local amount = tonumber(args[1]);
@@ -50,6 +52,7 @@ end
 concommand.Add("#!/givemoney", GiveMoney);
 
 local function CreateBounty(ply, cmd, args)
+	if !ply then return end;
 	if !ply:HasFlag("w") and !ply:IsStaff() then
 		ply:PrintChat("You're not allowed to submit bounties! Contact a sysadmin.");
 		return;
@@ -99,6 +102,7 @@ end
 concommand.Add("#!/createbounty", CreateBounty);
 
 local function RemoveBounty(ply, cmd, args)
+	if !ply then return end;
 	if !ply:HasFlag("w") and !ply:IsStaff() then
 		ply:PrintChat("You're not allowed to remove bounties! Contact a sysadmin.");
 		return;
@@ -125,6 +129,7 @@ end
 concommand.Add("#!/removebounty", RemoveBounty);
 
 local function EditBounty(ply, cmd, args)
+	if !ply then return end;
 	if !ply:HasFlag("w") and !ply:IsStaff() then
 		ply:PrintChat("You're not allowed to edit bounties! Contact a sysadmin.");
 		return;
@@ -169,6 +174,7 @@ netstream.Hook("BASH_Update_Bounty", function(ply, data)
 end);
 
 local function CreateGroup(ply, cmd, args)
+	if !ply then return end;
 	if !ply:HasFlag("w") and !ply:IsStaff() then
 		ply:PrintChat("You're not allowed to submit groups! Contact a sysadmin.");
 		return;
@@ -216,6 +222,7 @@ end
 concommand.Add("#!/creategroup", CreateGroup);
 
 local function RemoveGroup(ply, cmd, args)
+	if !ply then return end;
 	if !ply:HasFlag("w") and !ply:IsStaff() then
 		ply:PrintChat("You're not allowed to remove groups! Contact a sysadmin.");
 		return;
@@ -242,6 +249,7 @@ end
 concommand.Add("#!/removegroup", RemoveGroup);
 
 local function EditGroup(ply, cmd, args)
+	if !ply then return end;
 	if !ply:HasFlag("w") and !ply:IsStaff() then
 		ply:PrintChat("You're not allowed to edit groups! Contact a sysadmin.");
 		return;
@@ -286,6 +294,7 @@ netstream.Hook("BASH_Update_Group", function(ply, data)
 end);
 
 local function CreateAdvert(ply, cmd, args)
+	if !ply then return end;
 	if ply:HasFlag("z") then
 		ply:PrintChat("You've been blacklisted from making PDA adverts.");
 		return;
@@ -331,6 +340,7 @@ end
 concommand.Add("#!/createadvert", CreateAdvert);
 
 local function RemoveAdvert(ply, cmd, args)
+	if !ply then return end;
 	if ply:HasFlag("z") then
 		ply:PrintChat("You've been blacklisted from removing PDA adverts.");
 		return;
@@ -366,6 +376,7 @@ end
 concommand.Add("#!/removeadvert", RemoveAdvert);
 
 local function EditAdvert(ply, cmd, args)
+	if !ply then return end;
 	if ply:HasFlag("z") then
 		ply:PrintChat("You've been blacklisted from editing PDA adverts.");
 		return;
@@ -419,6 +430,7 @@ netstream.Hook("BASH_Update_Advert", function(ply, data)
 end);
 
 local function Slay(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -444,6 +456,7 @@ end
 concommand.Add("#!/slay", Slay);
 
 local function GrantMoney(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -487,6 +500,7 @@ end
 concommand.Add("#!/grantmoney", GrantMoney);
 
 local function DrainMoney(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -530,6 +544,7 @@ end
 concommand.Add("#!/drainmoney", DrainMoney);
 
 local function Kick(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -572,6 +587,7 @@ end
 concommand.Add("#!/kick", Kick);
 
 local function EditCharFlags(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -618,6 +634,7 @@ netstream.Hook("BASH_Edit_CharFlags_Return", function(ply, data)
 end);
 
 local function EditPlayerFlags(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -664,6 +681,7 @@ netstream.Hook("BASH_Edit_PlyFlags_Return", function(ply, data)
 end);
 
 local function EditWhitelists(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -702,6 +720,7 @@ netstream.Hook("BASH_Edit_Whitelists_Return", function(ply, data)
 end);
 
 local function TimedKill(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -754,6 +773,7 @@ end
 concommand.Add("#!/timedkill", TimedKill)
 
 local function Mute(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -786,6 +806,7 @@ end
 concommand.Add("#!/mute", Mute);
 
 local function UnMute(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -818,6 +839,7 @@ end
 concommand.Add("#!/unmute", UnMute);
 
 local function Bring(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -850,6 +872,7 @@ end
 concommand.Add("#!/bring", Bring);
 
 local function ReturnLast(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -878,6 +901,7 @@ end
 concommand.Add("#!/returnlast", ReturnLast);
 
 local function OOCDelay(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -903,6 +927,7 @@ end
 concommand.Add("#!/setoocdelay", OOCDelay);
 
 local function Ban(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -962,6 +987,7 @@ end
 concommand.Add("#!/ban", Ban);
 
 local function BanID(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1015,6 +1041,7 @@ end
 concommand.Add("#!/banid", BanID);
 
 local function Youtube(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1035,6 +1062,7 @@ end
 concommand.Add("#!/youtube", Youtube);
 
 local function KillYoutube(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1049,6 +1077,7 @@ end
 concommand.Add("#!/killyoutube", KillYoutube);
 
 local function SetModel(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1087,6 +1116,7 @@ end
 concommand.Add("#!/setmodel", SetModel);
 
 local function SetSpawn(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1103,6 +1133,7 @@ end
 concommand.Add("#!/setspawn", SetSpawn);
 
 local function RemoveSpawn(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1137,6 +1168,7 @@ end
 concommand.Add("#!/removespawn", RemoveSpawn);
 
 local function FactionSpawn(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1159,6 +1191,7 @@ end
 concommand.Add("#!/factionspawn", FactionSpawn);
 
 local function CreateItem(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then return end;
 	if !ply:GetEntry("CharLoaded") then return end;
 	if !args[1] then return end;
@@ -1234,6 +1267,7 @@ end
 concommand.Add("#!/createitem", CreateItem);
 
 local function CreateStorage(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then return end;
 	if !ply:GetEntry("CharLoaded") then return end;
 	if !args[1] then return end;
@@ -1265,6 +1299,7 @@ end
 concommand.Add("#!/createstorage", CreateStorage);
 
 local function History(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1327,6 +1362,7 @@ netstream.Hook("BASH_Update_History", function(ply, data)
 end);
 
 local function GrantLoot(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() and !ply:IsTrader() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1398,6 +1434,7 @@ end
 concommand.Add("#!/grantloot", GrantLoot);
 
 local function BundleMoney(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	local money = tonumber(args[1]);
@@ -1436,6 +1473,7 @@ end
 concommand.Add("#!/bundlemoney", BundleMoney);
 
 local function DropMoney(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	local money = tonumber(args[1]);
@@ -1466,6 +1504,7 @@ end
 concommand.Add("#!/dropmoney", DropMoney);
 
 local function ToggleConv(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	local traceTab = {};
@@ -1498,6 +1537,7 @@ end
 concommand.Add("#!/toggleconv", ToggleConv);
 
 local function ResetConv(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	ply.Convo = {};
@@ -1507,6 +1547,7 @@ end
 concommand.Add("#!/resetconv", ResetConv);
 
 local function SetPassword(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1536,6 +1577,7 @@ end
 concommand.Add("#!/setpassword", SetPassword);
 
 local function PMCharacter(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	local target = args[1];
@@ -1578,6 +1620,7 @@ end
 concommand.Add("#!/pmc", PMCharacter);
 
 local function PMPlayer(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	local target = args[1];
@@ -1625,6 +1668,7 @@ end
 concommand.Add("#!/pmp", PMPlayer);
 
 local function ConcMessage(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
@@ -1671,6 +1715,7 @@ end
 concommand.Add("#!/conc", ConcMessage);
 
 local function PropDesc(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") or !ply:Alive() then return end;
 
 	local traceTab = {};
@@ -1704,6 +1749,7 @@ end
 concommand.Add("#!/propdesc", PropDesc);
 
 local function SpawnStockpile(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1731,6 +1777,7 @@ end
 concommand.Add("#!/stockpile", SpawnStockpile);
 
 local function AdminESP(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1749,6 +1796,7 @@ end
 concommand.Add("#!/esp", AdminESP);
 
 local function PreRestart(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1771,6 +1819,7 @@ end
 concommand.Add("#!/prerestart", PreRestart);
 
 local function SetFaction(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -1808,6 +1857,7 @@ end
 concommand.Add("#!/setfaction", SetFaction);
 
 local function Language(ply, cmd, args, argStr)
+	if !ply then return end;
 	local lang = args[1];
 	if string.len(lang) != 3 or !BASH.Quirks[lang] then
 		ply:PrintChat("Invalid language ID!");
@@ -1927,6 +1977,7 @@ end
 concommand.Add("#!/roll", Roll);
 
 local function GetScreencap(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -2010,6 +2061,7 @@ net.Receive("BASH_Send_Screencap", function(len, ply)
 end)
 
 local function GetCharInfo(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -2137,6 +2189,7 @@ end
 concommand.Add("#!/getcharinfo", GetCharInfo);
 
 local function PhysgunBan(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -2164,6 +2217,7 @@ end
 concommand.Add("#!/physgunban", PhysgunBan);
 
 local function PhysgunBanID(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -2189,6 +2243,7 @@ end
 concommand.Add("#!/physgunbanid", PhysgunBanID);
 
 local function PhysgunUnban(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -2216,6 +2271,7 @@ end
 concommand.Add("#!/physgununban", PhysgunUnban);
 
 local function PhysgunUnbanID(ply, cmd, args)
+	if !ply then return end;
 	if !ply:IsStaff() then
 		ply:PrintChat("You can't do that!");
 		return;
@@ -2241,6 +2297,7 @@ end
 concommand.Add("#!/physgununbanid", PhysgunUnbanID);
 
 local function PatDown(ply, cmd, args)
+	if !ply then return end;
 	if !ply:GetEntry("CharLoaded") then return end;
 
 	local traceTab = {};
