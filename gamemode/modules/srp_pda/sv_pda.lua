@@ -352,7 +352,7 @@ function BASH:CalculateEconomy()
 	getEconStats:start();
 
 	function getEconStats:onSuccess(data)
-		stats = data[1];
+		stats = data[1] or {};
 	end
 
 	// Floating Cash
@@ -396,6 +396,11 @@ function BASH:UpdateEconomy(value, field)
 	if field then
 		updateEconomy = self.DB:query("UPDATE BASH_econ SET " .. field .. " = " .. tostring(value) .. ";");
 	else
+		value["ValueIn"] = value["ValueIn"] or 0;
+		value["ValueOut"] = value["ValueOut"] or 0;
+		value["FloatingCash"] = value["FloatingCash"] or 0;
+		value["CashMoved"] = value["CashMoved"] or 0;
+		value["CashFired"] = value["CashFired"] or 0;
 		updateEconomy = self.DB:query("UPDATE BASH_econ SET ValueIn = " .. tostring(value["ValueIn"]) .. ", ValueOut = " .. tostring(value["ValueOut"]) .. ", FloatingCash = " .. tostring(value["FloatingCash"]) .. ", CashMoved = " .. tostring(value["CashMoved"]) .. ", CashFired = " .. tostring(value["CashFired"]) .. ";");
 	end
 
