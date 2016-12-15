@@ -6,7 +6,7 @@ if !mysqloo then
 end
 
 function BASH:SQLInit()
-	self.DB = mysqloo.connect(self.SQLHost, self.SQLUsername, self.SQLPassword, self.SQLDatabase, self.SQLPort, self.SQLSock);
+	self.DB = mysqloo.connect(self.SQLHost, self.SQLUsername, self.SQLPassword, self.SQLDatabase, self.SQLPort);
 
 	function self.DB:onConnected()
 		MsgCon(color_green, "Connected to MySQL database successfully!");
