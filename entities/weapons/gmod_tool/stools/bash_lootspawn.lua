@@ -11,7 +11,7 @@ end
 function TOOL:LeftClick(trace)
     if CLIENT then return true end;
     if !trace.Hit or trace.HitSky then return end;
-    if !LocalPlayer():IsStaff() then return end;
+    if !self.Owner:IsStaff() then return end;
 
     local newLoot = ents.Create("bash_loot");
     local pos = trace.HitPos;
@@ -31,7 +31,7 @@ function TOOL:RightClick(trace)
     if CLIENT then return true end;
     if !trace.Hit or trace.HitSky then return end;
     if trace.Entity:GetClass() != "bash_loot" then return end;
-    if !LocalPlayer():IsStaff() then return end;
+    if !self.Owner:IsStaff() then return end;
 
     trace.Entity:Remove();
     return true;
@@ -41,7 +41,7 @@ function TOOL:Reload(trace)
     if CLIENT then return true end;
     if !trace.Hit or trace.HitSky then return end;
     if trace.Entity:GetClass() != "bash_loot" then return end;
-    if !LocalPlayer():IsStaff() then return end;
+    if !self.Owner:IsStaff() then return end;
 
     trace.Entity:SetDelay(tonumber(self:GetClientNumber("lootdelay")));
     return true;
