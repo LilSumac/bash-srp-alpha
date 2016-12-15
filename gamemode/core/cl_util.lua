@@ -106,13 +106,12 @@ end
 function draw.Circle(xPos, yPos, r, quality, color)
 	local points = {};
 	local temp;
-
 	for index = 1, quality do
 		temp = math.rad(index * 360) / quality;
 
 		points[index] = {
-			x = posX + (math.cos(temp) * r),
-			y = posY + (math.sin(temp) * r)
+			x = xPos + (math.cos(temp) * r),
+			y = yPos + (math.sin(temp) * r)
 		};
 	end
 
