@@ -223,7 +223,7 @@ local function PeriodicSave()
 
 	local writing = util.TableToJSON(BASH.WritingData or {}, true);
 	BASH:WriteToFile("vars/writing.txt", writing, true);
-	MsgCon(color_purple, "Saved writing data! Entries: " .. table.Count(writing));
+	MsgCon(color_purple, "Saved writing data! Entries: " .. table.Count(BASH.WritingData or {}));
 
 	local closets = ents.FindByClass("bash_storage");
 	if !closets then return end;
