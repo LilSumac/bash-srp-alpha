@@ -82,7 +82,7 @@ hook.Add("OnInit", "LoadPhysBlacklist", function()
 	end
 
 	blacklist = util.JSONToTable(blacklist);
-	BASH.PhysgunBlacklist = blacklist;
+	BASH.PhysgunBlacklist = blacklist or {};
 	MsgCon(color_green, "Loaded physgun blacklist! Entries: " .. table.Count(BASH.PhysgunBlacklist));
 end);
 
@@ -99,7 +99,7 @@ function BASH:LoadPersist()
 		return;
 	end
 
-	local tab = util.JSONToTable(file);
+	local tab = util.JSONToTable(file) or {};
 	if !tab then return end;
 	if !tab.Entities then return end;
 	if !tab.Constraints then return end;
@@ -177,7 +177,6 @@ function BASH:RemoveWritingData(id)
 	if !self.WritingData or !id then return end;
 
 	self.WritingData[id] = nil;
-
 	MsgCon(color_purple, "Writing destroyed: " .. id);
 end
 
@@ -201,9 +200,9 @@ end);
 */
 function BASH:SaveWriting()
 	if !self.WritingData or self.WritingData == {} then return end;
-	local writing = util.TableToJSON(self.WritingData, true);
+				
+	local writing = util.TableToJSON(self.WritingData or {}, true);
 	self:WriteToFile("vars/writing.txt", writing, true);
-
 	MsgCon(color_purple, "Saved writing data! Entries: " .. table.Count(self.WritingData));
 end
 
@@ -222,9 +221,9 @@ end);
 local function PeriodicSave()
     MsgCon(color_blue, "Saving all variable data...");
 
-	local writing = util.TableToJSON(BASH.WritingData, true);
+	local writing = util.TableToJSON(BASH.WritingData or {}, true);
 	BASH:WriteToFile("vars/writing.txt", writing, true);
-	MsgCon(color_purple, "Saved writing data! Entries: " .. table.Count(BASH.WritingData));
+	MsgCon(color_purple, "Saved writing data! Entries: " .. table.Count(writing));
 
 	local closets = ents.FindByClass("bash_storage");
 	if !closets then return end;
@@ -264,9 +263,9 @@ local function PeriodicSave()
 	BASH:WriteToFile("vars/loot/" .. game.GetMap() .. ".txt", save, true);
 	MsgCon(color_purple, "Saved loot spawns! Entries: " .. tostring(index - 1));
 
-	local blacklist = util.TableToJSON(BASH.PhysgunBlacklist, true);
+	local blacklist = util.TableToJSON(BASH.PhysgunBlacklist or {}, true);
 	BASH:WriteToFile("vars/physblacklist.txt", blacklist, true);
-	MsgCon(color_purple, "Saved physgun blacklist! Entries: " .. table.Count(BASH.PhysgunBlacklist));
+	MsgCon(color_purple, "Saved physgun blacklist! Entries: " .. table.Count(blacklist));
 
 	hook.Call("PeriodicSave", BASH);
 
@@ -332,8 +331,8 @@ end);
 */
 hook.Add("ShutDown", "SavePhysgunBlacklist", function()
 	if !BASH.PhysgunBlacklist or BASH.PhysgunBlacklist == {} then return end;
+					
 	local blacklist = util.TableToJSON(BASH.PhysgunBlacklist or {}, true);
 	BASH:WriteToFile("vars/physblacklist.txt", blacklist, true);
-
-	MsgCon(color_purple, "Saved physgun blacklist! Entries: " .. table.Count(BASH.PhysgunBlacklist));
+	MsgCon(color_purple, "Saved physgun blacklist! Entries: " .. table.Count(blacklist));
 end);
