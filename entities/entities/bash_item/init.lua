@@ -125,6 +125,7 @@ end
 
 function ENT:OnRemove()
 	if !self:GetTable().IsSafeRemoved then
+		if !BASH.EconomyStats or !BASH.EconomyStats["ValueOut"] then return end;
 		BASH:UpdateEconomy(BASH.EconomyStats["ValueOut"] + (self.ItemData.DefaultPrice * (self.Stacks or 1)), "ValueOut");
 		hook.Call("OnUnsafeRemove", BASH, self);
 	end
